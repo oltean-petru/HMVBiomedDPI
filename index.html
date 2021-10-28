@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HMV</title>
+    <title>Biomed DPI CDC</title>
 </head>
 <style>
     body {
@@ -56,6 +56,22 @@
         background-color: #c00ba8;
         color: white;
     }
+
+    #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background-color: #c00ba8;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 4px;
+    }
 </style>
 <nav>
     <div class="topnav">
@@ -67,6 +83,7 @@
 </nav>
 
 <body>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <div class="article" id="home">
         <h1 style="text-align: center;">Bienvennue!</h1>
         <p style="text-align:justify">
@@ -91,7 +108,7 @@
                 Mobiles&nbsp;et&nbsp;Internet&nbsp;des&nbsp;objets
             </li>
             <li style="text-align: justify;">Tuteur&nbsp;p&eacute;dagogique:&nbsp;MEDINA&nbsp;Emmanuel</li>
-            <li style="text-align: justify;">Tuteur professionnel: GRANGE Marie&nbsp;</li>
+            <li style="text-align: justify;">Tuteur proffesionnel: GRANGE Marie&nbsp;</li>
         </ul>
     </div>
     <div class="article" id="sujet">
@@ -128,7 +145,7 @@
                     href="mailto:petru.oltean5@etu.univ-lorraine.fr">petru.oltean5@etu.univ-lorraine.fr</a></li>
             <li style="text-align: justify;">MEDINA Emmanuel (tuteur p&eacute;dagogique):&nbsp;<a
                     href="mailto:emmanuel.medina@univ-lorraine.fr">emmanuel.medina@univ-lorraine.fr</a></li>
-            <li style="text-align: justify;">GRANGE Marie&nbsp;(tuteur professionnel):&nbsp;<a
+            <li style="text-align: justify;">GRANGE Marie&nbsp;(tuteur proffesionnel):&nbsp;<a
                     href="mailto:marie.grange@ch-saintdie.fr" target="_blank">marie.grange@ch-saintdie.fr</a></li>
             <li style="text-align: justify;">COSYNS J&eacute;r&eacute;my (chef de projet):&nbsp;<a
                     href="mailto:jeremy.cosyns@ch-saintdie.fr" target="_blank">jeremy.cosyns@ch-saintdie.fr</a></li>
@@ -156,6 +173,27 @@
 
         <p>&nbsp;</p>
     </div>
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
 </body>
 
 </html>
