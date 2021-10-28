@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biomed DPI CDC</title>
+    <title>Biomed DPI</title>
 </head>
 <style>
     body {
-        background-color: #181a1b;
+        background-color: #585f63;
         color: white;
         font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;
         font-size: 14;
@@ -18,46 +18,69 @@
     div {
         background-color: #2e3233;
         color: white;
-        border-radius: 5px;
         overflow-wrap: break-word;
     }
 
     div.article {
-        margin: 5% 15% 0% 15%;
+        margin: 1% 10% 0% 10%;
         padding: 5px 15px 5px 15px;
-    }
-
-    div.topnav {
-        overflow: hidden;
-        background-color: #585f63;
         border-radius: 5px;
-        top: 5px;
-        right: 8px;
-        left: 8px;
+    }
+
+    #header {
+        height: 30vh;
+        background: url(https://www.copadata.com/fileadmin/_processed_/8/8/csm_industrial_automation_trends_making_waves_header_subpage_700x250px_efd6e0819b.jpg);
+        background-size: contain;
+    }
+
+    #nav {
+        background-color: #181a1b;
+        top: 0;
+        width: 100%;
+    }
+
+    #nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+    }
+
+    #nav li {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #nav ul li a {
+        color: #e647d0;
+        transition: all 0.4s;
+    }
+
+    #nav ul li a:hover {
+        color: rgb(255, 0, 149);
+    }
+
+    #nav ul li img {
+        height: 96px;
+        transition: height 0.4s;
+    }
+
+    #nav.fixed {
         position: fixed;
-        width: 99%;
+        box-shadow: 5px 5px 19px 0px rgba(0, 0, 0, 0.5);
     }
 
-    .topnav a {
-        float: left;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 17px;
+    #nav.fixed ul li img {
+        height: 36px;
     }
 
-    .topnav a:hover {
-        background-color: #ddd;
-        color: black;
+    #nav.fixed ul li a {
+        font-size: 14px;
     }
 
-    .topnav a.active {
-        background-color: #c00ba8;
-        color: white;
-    }
-
-    #myBtn {
+    #topBtn {
         display: none;
         position: fixed;
         bottom: 20px;
@@ -70,20 +93,23 @@
         color: white;
         cursor: pointer;
         padding: 15px;
-        border-radius: 4px;
+        border-radius: 50%;
     }
 </style>
-<nav>
-    <div class="topnav">
-        <a class="active" href="#home">Acceuil</a>
-        <a href="#sujet">Sujet d'apprentisage</a>
-        <a href="#contact">Contact</a>
-        <a href="#cdc">CDC</a>
-    </div>
-</nav>
 
 <body>
-    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <button onclick="topFunction()" id="topBtn" title="Go to top">▲</button>
+    <header id="header"></header>
+    <nav id="nav">
+        <ul>
+            <li><a href="http://www.ch-saintdie.fr/"><img src="http://www.ch-saintdie.fr/ressources/logo_std.png"
+                        height="96" /></a></li>
+            <li><a href="#home">Acceuil</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#sujet">Sujet d'apprentisage</a></li>
+            <li><a href="#cdc">CDC</a></li>
+        </ul>
+    </nav>
     <div class="article" id="home">
         <h1 style="text-align: center;">Bienvennue!</h1>
         <p style="text-align:justify">
@@ -170,30 +196,58 @@
             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
             in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p style="text-align:justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+            qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p style="text-align:justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+            qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
         <p>&nbsp;</p>
     </div>
-    <script>
-        //Get the button
-        var mybutton = document.getElementById("myBtn");
-        
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function() {scrollFunction()};
-        
-        function scrollFunction() {
-          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            mybutton.style.display = "block";
-          } else {
-            mybutton.style.display = "none";
-          }
-        }
-        
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
-        }
-        </script>
+
 </body>
+<script>
+    const nav = document.querySelector('#nav');
+    let navTop = nav.offsetTop;
+
+    function fixedNav() {
+        if (window.scrollY >= navTop) {
+            nav.classList.add('fixed');
+        } else {
+            nav.classList.remove('fixed');
+        }
+    }
+
+    window.addEventListener('scroll', fixedNav);
+    var mybutton = document.getElementById("topBtn");
+
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
 
 </html>
