@@ -7,6 +7,10 @@
     <title>Biomed DPI</title>
 </head>
 <style>
+    html {
+        scroll-behavior: smooth;
+    }
+
     body {
         background-color: #585f63;
         color: white;
@@ -20,9 +24,12 @@
         color: white;
         overflow-wrap: break-word;
     }
-
-    div.article {
+    div.spacer{
+        background-color: transparent;
         margin: 1% 10% 0% 10%;
+    }
+    div.article {
+        margin: 0% 10% 0% 10%;
         padding: 5px 15px 5px 15px;
         border-radius: 3px;
     }
@@ -100,17 +107,18 @@
 <body>
     <button onclick="topFunction()" id="topBtn" title="Go to top">▲</button>
     <header id="header"></header>
-    <nav id="nav">
+    <nav id="nav" class="main-nav">
         <ul>
             <li><a href="http://www.ch-saintdie.fr/"><img src="http://www.ch-saintdie.fr/ressources/logo_std.png"
                         height="96" /></a></li>
             <li><a onclick="topFunction()" href="#">Acceuil</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#sujet">Sujet d'apprentisage</a></li>
-            <li><a href="#cdc">Cahier des charges</a></li>
+            <li><a href="#sujet">Contact</a></li>
+            <li><a href="#home">Sujet d'apprentisage</a></li>
+            <li><a href="#contact">Cahier des charges</a></li>
         </ul>
     </nav>
-    <div class="article" id="home">
+    <div class="spacer" id="home"></div>
+    <div class="article">
         <h1 style="text-align: center;">Bienvennue!</h1>
         <p style="text-align:justify">
             Cette&nbsp;page&nbsp;a&nbsp;pour&nbsp;but&nbsp;de&nbsp;vous&nbsp;pr&eacute;senter&nbsp;le&nbsp;chaier&nbsp;des&nbsp;charges&nbsp;du&nbsp;projet&nbsp;concernant&nbsp;d&#39;alternance&nbsp;LP&nbsp;AMIO&nbsp;2021-2022.&nbsp;
@@ -136,7 +144,8 @@
         </ul>
         <p>&nbsp;</p>
     </div>
-    <div class="article" id="sujet">
+    <div class="spacer" id="sujet"></div>
+    <div class="article">
         <h1 style="text-align: center;">Sujet</h1>
         <blockquote>
             <p style="text-align:justify"><span
@@ -164,7 +173,8 @@
         </ul>
         <p>&nbsp;</p>
     </div>
-    <div class="article" id="contact">
+    <div class="spacer" id="contact"></div>
+    <div class="article">
         <h1 style="text-align: center;">Contact</h1>
         <ul>
             <li style="text-align: justify;">OLTEAN Petru (alternant):&nbsp;<a
@@ -178,7 +188,8 @@
         </ul>
         <p>&nbsp;</p>
     </div>
-    <div class="article" id="cdc">
+    <div class="spacer" id="cdc"></div>
+    <div class="article">
         <h1 style="text-align:center">Cahier des charges</h1>
 
         <p>&nbsp;</p>
@@ -206,16 +217,18 @@
         <p style="text-align:justify">La sollution actuelle (saisi manuelle des resultats) est lente et source
             d&#39;erreure: du a la nature manuelle de saisi, les donnees n&#39;apparais pas instantement dans le DPI du
             patient, ce qui pourrait provoquer une redondance de donnees. <u>Un patient peut subir un m&ecirc;me test
-            plus d&#39;une fois car certains m&eacute;decins peuvent ordonner les m&ecirc;mes analyses si celui-ci
-            n&#39;&eacute;tait pas pr&eacute;sent dans le DPI lors des premi&egrave;res analyses.</u><br />
+                plus d&#39;une fois car certains m&eacute;decins peuvent ordonner les m&ecirc;mes analyses si celui-ci
+                n&#39;&eacute;tait pas pr&eacute;sent dans le DPI lors des premi&egrave;res analyses.</u><br />
             D&ucirc; &agrave; la nature manuelle de la tache, il est &eacute;galement possible (m&ecirc;me si c&#39;est
             <strong><em>tr&egrave;s</em></strong> rare) d&#39;affecter les r&eacute;sultats au mauvais patient ce qui
-            pourrait poser beaucoup des probl&egrave;mes.&nbsp;</p>
-            <p style="text-align:justify">
+            pourrait poser beaucoup des probl&egrave;mes.&nbsp;
+        </p>
+        <p style="text-align:justify">
             De plus, le centre hospitalier est dot&eacute; des diff&eacute;rents types de machines qui proviennent de
             diff&eacute;rentes marques, ce qui provoque une fragmentation concernant la proc&eacute;dure
             d&#39;int&eacute;gration des donn&eacute;es, car elle peut &ecirc;tre diff&eacute;rente en fonction de la
-            marque. Cela veut aussi dire que certaines informations concernant un patient se trouve sur plusieurs logiciels differents.</p>
+            marque. Cela veut aussi dire que certaines informations concernant un patient se trouve sur plusieurs
+            logiciels differents.</p>
 
         <h2>Description du besoin</h2>
         <ul>
@@ -234,15 +247,23 @@
             <li>s&eacute;curisation des donn&eacute;es</li>
             <li>affectation des donn&eacute;es aux patients (avant la proc&eacute;dure)</li>
             <li>remont&eacute;e en directe des donn&eacute;es pendant la proc&eacute;dure&nbsp;</li>
-            <li>identification des utilisateurs (assistantes, m&eacute;decins, infirmi&egrave;res...) avant la relev&eacute;e des informations</li>
-            <li>syst&egrave;mes d&rsquo;envois par un r&eacute;seau wifi interne (wireless, sans c&acirc;ble Ethernet) pour les appareils mobiles et chariots (tour de soins par exemple)</li>
-            <li>connections permanente&nbsp;pour les appareils fixes, transmission possible par Ethernet (soins continue par exemple)</li>
-            <li>pr&eacute;voir les cas d&#39;utilisation possibles (mobiles ou fixes) et adapter l&#39;interface en cons&eacute;quence</li>
-            <li>Int&eacute;gration de Patient Connect au DPI actuel (H&ocirc;pital Manager) pour la renvoie des donn&eacute;es et pour l&#39;authentification du personnel (&eacute;viter l&#39;authentification redondante)</li>
-            <li>mise a jour du serveur qui eberge envoacom (server 2008 -&gt; server 2019) pour accommoder la nouvelle interface et pour augmenter la s&eacute;curit&eacute; des donn&eacute;es mais aussi pour &eacute;viter l&rsquo;instabilit&eacute; du serveur</li>
+            <li>identification des utilisateurs (assistantes, m&eacute;decins, infirmi&egrave;res...) avant la
+                relev&eacute;e des informations</li>
+            <li>syst&egrave;mes d&rsquo;envois par un r&eacute;seau wifi interne (wireless, sans c&acirc;ble Ethernet)
+                pour les appareils mobiles et chariots (tour de soins par exemple)</li>
+            <li>connections permanente&nbsp;pour les appareils fixes, transmission possible par Ethernet (soins continue
+                par exemple)</li>
+            <li>pr&eacute;voir les cas d&#39;utilisation possibles (mobiles ou fixes) et adapter l&#39;interface en
+                cons&eacute;quence</li>
+            <li>Int&eacute;gration de Patient Connect au DPI actuel (H&ocirc;pital Manager) pour la renvoie des
+                donn&eacute;es et pour l&#39;authentification (SSO) du personnel (&eacute;viter l&#39;authentification
+                redondante)</li>
+            <li>mise a jour du serveur qui eberge envoacom (server 2008 -&gt; server 2019) pour accommoder la nouvelle
+                interface et pour augmenter la s&eacute;curit&eacute; des donn&eacute;es mais aussi pour &eacute;viter
+                l&rsquo;instabilit&eacute; du serveur</li>
             <li>mise a jour du serveur pr&eacute;vue janvier-f&eacute;vrier 2022</li>
         </ul>
-        
+
 
         <p>&nbsp;</p>
     </div>
