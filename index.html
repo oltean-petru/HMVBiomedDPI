@@ -4,13 +4,16 @@
 <head>
     <title>Projet d'alternance</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.5">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script>
         var height = $(window).height() - 50;
         $(".main").height(height);
+        $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+});
     </script>
     <style>
         /* Remove the navbar's default margin-bottom and rounded borders */
@@ -131,8 +134,21 @@
                     <li class="active"><a href="#home">Home</a></li>
                     <li><a href="#sujet">Sujet</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="#cdc">Chaier des Charges</a></li>
-                </ul>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cahier des charges <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Mise en situation</a></li>
+                        <li><a href="#">Définition du problème</a></li>
+                        <li><a href="#">Étude de l'existant</a></li>
+                        <li><a href="#">Description fonctionnelle des besoins</a></li>
+                        <li><a href="#">Besoins technique</a></li>
+                        <li><a href="#">Planning provisionnel</a></li>
+                        <li><a href="#">contraintes</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><p style="color: #a0a0a5;">modifiée le: 09/02/2022</p></li>
+                  </ul>
             </div>
         </div>
     </nav>
@@ -144,7 +160,7 @@
                 <h1 id="home">Bienvennue!</h1>
                 <br>
                 <p style="text-align:justify">
-                    Cette&nbsp;page&nbsp;a&nbsp;pour&nbsp;but&nbsp;de&nbsp;vous&nbsp;pr&eacute;senter&nbsp;le&nbsp;chaier&nbsp;des&nbsp;charges&nbsp;du&nbsp;projet&nbsp;concernant&nbsp;d&#39;alternance&nbsp;LP&nbsp;AMIO&nbsp;2021-2022.&nbsp;
+                    Cette page a pour but de vous présenter le projet d'alternance LP AMIO 2021-2022. 
                 </p>
                 <p style="text-align:justify"><strong>Contexte:</strong></p>
                 <ul>
@@ -171,10 +187,9 @@
                                     d'examen vers le logiciel de dossier patient informatisé (DPI)
                                     ."</strong></em></span></p>
                 </blockquote>
-                <p>Objectifs de l&#39;alternance:</p>
+                <p>Objectifs du projet:</p>
                 <ul>
-                    <li>Valider les &eacute;l&eacute;ments n&eacute;cessaires &agrave; envoyer, et la zone
-                        d&#39;int&eacute;gration dans le DPI</li>
+                    <li>Valider les &eacute;l&eacute;ments n&eacute;cessaires afin d&#39;int&eacute;grer les donn&eacute;es dans le <u data-toggle="tooltip" title="Dossier patient informatisé"> DPI</u></li>
                     <li>Prise&nbsp;en&nbsp;main&nbsp;de&nbsp;notre&nbsp;logiciel&nbsp;d&#39;interfaces&nbsp;(EAI)
                         Enovacom&nbsp;et&nbsp;respect&nbsp;des&nbsp;r&egrave;gles&nbsp;de&nbsp;param&eacute;trages&nbsp;
                         existant&nbsp;pour&nbsp;faciliter&nbsp;le&nbsp;support
@@ -200,7 +215,7 @@
                     <li style="text-align: justify;">MEDINA Emmanuel (tuteur p&eacute;dagogique):&nbsp;<a
                             style="color: rgb(106, 158, 255);"
                             href="mailto:emmanuel.medina@univ-lorraine.fr">emmanuel.medina@univ-lorraine.fr</a></li>
-                    <li style="text-align: justify;">GRANGE Marie&nbsp;(tuteur proffesionnel):&nbsp;<a
+                    <li style="text-align: justify;">GRANGE Marie&nbsp;(tutrice proffesionnel):&nbsp;<a
                             style="color: rgb(106, 158, 255);" href="mailto:marie.grange@ch-saintdie.fr"
                             target="_blank">marie.grange@ch-saintdie.fr</a></li>
                     <li style="text-align: justify;">COSYNS J&eacute;r&eacute;my (chef de projet):&nbsp;<a
@@ -364,9 +379,8 @@
     </div>
     <div class="col-lg-2"></div>
     <footer class="footer mt-auto py-3 bg-light text-center">
-        <p>OLTEAN Petru © 2022 | <a style="color: rgb(106, 158, 255);" href="http://www.ch-saintdie.fr/">Centre
-                Hospitalier Saint-Charles</a> X <a style="color: rgb(106, 158, 255);"
-                href="https://iutsd.univ-lorraine.fr/">IUT Saint-Dié</a> | V1.0</p>
+        <p>OLTEAN Petru © 2022 | <a style="color: rgb(106, 158, 255);" href="http://www.ch-saintdie.fr/">CHI HMV</a> X <a style="color: rgb(106, 158, 255);"
+                href="https://iutsd.univ-lorraine.fr/">IUT Saint-Dié</a> | V1.1</p>
     </footer>
 </body>
 
