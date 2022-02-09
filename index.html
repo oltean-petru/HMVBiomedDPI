@@ -1,375 +1,373 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biomed DPI</title>
+    <title>Projet d'alternance</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        var height = $(window).height() - 50;
+        $(".main").height(height);
+    </script>
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {
+            height: 450px
+        }
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            padding-top: 20px;
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 18px;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
+
+        body {
+            background-color: #585f63;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+
+
+        }
+
+        .main {
+            margin-top: 50px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            max-height: 88vh;
+            scroll-behavior: smooth;
+        }
+
+        h1 {
+            color: magenta;
+            text-align: center;
+        }
+
+        h2 {
+            color: rgb(252, 44, 252);
+        }
+
+        h3 {
+            color: rgb(255, 88, 255);
+        }
+
+        div.gantt {
+            overflow-y: hidden;
+            white-space: nowrap;
+        }
+
+        ::-webkit-scrollbar {
+            background-color: rgb(0, 0, 0);
+            width: 16px
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #585f63;
+        }
+
+        ::-webkit-scrollbar-track:hover {
+            background-color: #585f63ec
+        }
+
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #babac0c4;
+            border: 5px solid #585f63
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #a0a0a5;
+            border: 4px solid #585f63
+        }
+
+        ::-webkit-scrollbar-button {
+            display: none
+        }
+    </style>
 </head>
-<style>
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-        background-color: #585f63;
-        color: white;
-        font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;
-        font-size: 14;
-        margin: 0px;
-    }
-
-    h1 {
-        color: magenta;
-    }
-
-    h2 {
-        color: rgb(252, 44, 252);
-    }
-
-    h3 {
-        color: rgb(255, 88, 255);
-    }
-
-    div {
-        background-color: #2e3233;
-        color: white;
-        overflow-wrap: break-word;
-    }
-
-    div.spacer {
-        background-color: transparent;
-        margin: 1% 20% 0% 20%;
-    }
-
-    div.article {
-        margin: 0% 20% 0% 20%;
-        padding: 5px 15px 5px 15px;
-        border-radius: 3px;
-    }
-
-    #header {
-        height: 30vh;
-        background: url(https://biomed.uowm.gr/sites/default/files/2021-06/header1.jpg);
-        background-size: fill;
-        background-attachment: fixed;
-        text-align: center;
-    }
-
-    #nav {
-        background-color: #181a1b;
-        top: 0;
-        width: 100%;
-    }
-
-    #nav ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        display: flex;
-    }
-
-    #nav li {
-        flex: 1;
-        display: flex;
-        justify-content:center;
-        align-items: center;
-    }
-
-    #nav ul li a {
-        color: #e647d0;
-        transition: all 0.2s;
-        font-size: 18px;
-    }
-
-    #nav ul li a:hover {
-        color: rgb(255, 0, 149);
-    }
-
-    #nav ul li img {
-        height: 96px;
-        transition: height 0.2s;
-    }
-
-    #nav.fixed {
-        position: fixed;
-        box-shadow: 5px 5px 19px 0px rgba(0, 0, 0, 0.5);
-    }
-
-    #nav.fixed ul li img {
-        height: 36px;
-    }
-
-    #nav.fixed ul li a {
-        font-size: 16px;
-    }
-
-    #topBtn {
-        display: none;
-        position: fixed;
-        bottom: 20px;
-        right: 30px;
-        z-index: 99;
-        font-size: 18px;
-        border: none;
-        outline: none;
-        background-color: #c00ba8;
-        color: white;
-        cursor: pointer;
-        padding: 15px;
-        border-radius: 50%;
-    }
-
-    div.gantt {
-        overflow-y: hidden;
-        white-space: nowrap;
-    }
-
-    footer {
-        text-align: center;
-        padding: 3px;
-        margin-top: 1%;
-        max-height: 6%;
-        background-color: #474b4c;
-        color: white;
-    }
-</style>
 
 <body>
-    <button onclick="topFunction()" id="topBtn" title="Go to top">▲</button>
-    <header id="header">
-        <p style="color: red; font-size: 30; padding-top: 10vh;">VERSION 0.2B </p>
-    </header>
-    <nav id="nav" class="main-nav">
-        <ul>
-            <li><a href="http://www.ch-saintdie.fr/"><img src="https://i.imgur.com/0vM2lRy.pngs" height="96" /></a></li>
-            <li><a onclick="topFunction()" href="#">Acceuil</a></li>
-            <li><a href="#sujet">Contact</a></li>
-            <li><a href="#home">Sujet d'apprentisage</a></li>
-            <li><a href="#contact">Cahier des charges</a></li>
-            <li><a href="https://iutsd.univ-lorraine.fr/"><img src="https://i.imgur.com/a5SVUUs.png" height="96" /></a></li>
-        </ul>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#home">Home</a></li>
+                    <li><a href="#sujet">Sujet</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
-    <div class="spacer" id="home"></div>
-    <div class="article">
-        <h1 style="text-align: center;">Bienvennue!</h1>
-        <p style="text-align:justify">
-            Cette&nbsp;page&nbsp;a&nbsp;pour&nbsp;but&nbsp;de&nbsp;vous&nbsp;pr&eacute;senter&nbsp;le&nbsp;chaier&nbsp;des&nbsp;charges&nbsp;du&nbsp;projet&nbsp;concernant&nbsp;d&#39;alternance&nbsp;LP&nbsp;AMIO&nbsp;2021-2022.&nbsp;
-        </p>
 
-        <p style="text-align:justify"><strong>Contexte:</strong></p>
+    <div class="container-fluid  main" style="background-color: #585f63;">
+        <div class="row row-offcanvas">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8" style="background-color: #2e3233; color: white;">
+                <h1 id="home">Bienvennue!</h1>
+                <br>
+                <p style="text-align:justify">
+                    Cette&nbsp;page&nbsp;a&nbsp;pour&nbsp;but&nbsp;de&nbsp;vous&nbsp;pr&eacute;senter&nbsp;le&nbsp;chaier&nbsp;des&nbsp;charges&nbsp;du&nbsp;projet&nbsp;concernant&nbsp;d&#39;alternance&nbsp;LP&nbsp;AMIO&nbsp;2021-2022.&nbsp;
+                </p>
+                <p style="text-align:justify"><strong>Contexte:</strong></p>
+                <ul>
+                    <li style="text-align: justify;">Alternant:&nbsp;OLTEAN&nbsp;Petru</li>
+                    <li style="text-align: justify;">
+                        &Eacute;tablissement&nbsp;d&#39;accueil:&nbsp;Centre&nbsp;
+                        Hospitalier&nbsp;Saint-Charles&nbsp;de&nbsp;Saint-Di&eacute;
+                    </li>
+                    <li style="text-align: justify;">
+                        Dur&eacute;e&nbsp;d&#39;alternance:&nbsp;1&nbsp;an,&nbsp;Octobre&nbsp;2021&nbsp;-&nbsp;Octobre&nbsp;2022
+                    </li>
+                    <li style="text-align: justify;">
+                        Sp&eacute;cialit&eacute;:&nbsp;Applications&nbsp;Web&nbsp;&ndash;&nbsp;Applications&nbsp;
+                        Mobiles&nbsp;et&nbsp;Internet&nbsp;des&nbsp;objets
+                    </li>
+                    <li style="text-align: justify;">Tuteur&nbsp;p&eacute;dagogique:&nbsp;MEDINA&nbsp;Emmanuel</li>
+                    <li style="text-align: justify;">Tuteur proffesionnel: GRANGE Marie&nbsp;</li>
+                </ul>
+                <hr>
+                <h1 id="sujet">Sujet</h1>
+                <blockquote>
+                    <p style="text-align:justify"><span style="font-size:16px"><em><strong>"Mise en place
+                                    d'interfaces entre les équipements biomédicaux pour l'envoi des résultats
+                                    d'examen vers le logiciel de dossier patient informatisé (DPI)
+                                    ."</strong></em></span></p>
+                </blockquote>
+                <p>Objectifs de l&#39;alternance:</p>
+                <ul>
+                    <li>Valider les &eacute;l&eacute;ments n&eacute;cessaires &agrave; envoyer, et la zone
+                        d&#39;int&eacute;gration dans le DPI</li>
+                    <li>Prise&nbsp;en&nbsp;main&nbsp;de&nbsp;notre&nbsp;logiciel&nbsp;d&#39;interfaces&nbsp;(EAI)
+                        Enovacom&nbsp;et&nbsp;respect&nbsp;des&nbsp;r&egrave;gles&nbsp;de&nbsp;param&eacute;trages&nbsp;
+                        existant&nbsp;pour&nbsp;faciliter&nbsp;le&nbsp;support
+                    </li>
+                    <li>Param&eacute;trer l&#39;envoi facile des informations en garantissant leur
+                        v&eacute;racit&eacute;, leur
+                        int&eacute;grit&eacute;, leur s&eacute;curit&eacute;, en corr&eacute;lation avec les
+                        diff&eacute;rents
+                        prestataires (mat&eacute;riels biom&eacute;dicaux, d&eacute;veloppeur DPI)</li>
+                    <li>Permettre un suivi optimal des &eacute;changes et un d&eacute;bogage efficace en cas de
+                        souci de
+                        l&#39;interface</li>
+                    <li>Fournir la documentation n&eacute;cessaire au maintien de l&#39;interface ainsi
+                        cr&eacute;&eacute;e</li>
+                </ul>
+                <hr>
+                <h1>Contact</h1>
+                <ul>
+                    <li style="text-align: justify;">OLTEAN Petru (alternant):&nbsp;<a
+                            style="color: rgb(106, 158, 255);"
+                            href="mailto:petru.oltean5@etu.univ-lorraine.fr">petru.oltean5@etu.univ-lorraine.fr</a>
+                    </li>
+                    <li style="text-align: justify;">MEDINA Emmanuel (tuteur p&eacute;dagogique):&nbsp;<a
+                            style="color: rgb(106, 158, 255);"
+                            href="mailto:emmanuel.medina@univ-lorraine.fr">emmanuel.medina@univ-lorraine.fr</a></li>
+                    <li style="text-align: justify;">GRANGE Marie&nbsp;(tuteur proffesionnel):&nbsp;<a
+                            style="color: rgb(106, 158, 255);" href="mailto:marie.grange@ch-saintdie.fr"
+                            target="_blank">marie.grange@ch-saintdie.fr</a></li>
+                    <li style="text-align: justify;">COSYNS J&eacute;r&eacute;my (chef de projet):&nbsp;<a
+                            style="color: rgb(106, 158, 255);" href="mailto:jeremy.cosyns@ch-saintdie.fr"
+                            target="_blank">jeremy.cosyns@ch-saintdie.fr</a></li>
+                </ul>
+                <hr>
+                <h1>Cahier des charges</h1>
+                <h2>Mise en situation</h2>
+                <p style="text-align:justify">Pour traiter leurs patients, les m&eacute;decins ont
+                    imp&eacute;rativement
+                    besoin
+                    de mat&eacute;riels adapt&eacute;, dont des appareils biom&eacute;dicaux pour effectuer des
+                    tests,
+                    d&eacute;clarer un diagnostic ou-bien effectuer des soins.<br />
+                    Ces appareils sont indispensables pour assurer le bon fonctionnement du milieu hospitalier, pour
+                    permettre
+                    et ou faciliter la pratique des m&eacute;decins et d&#39;apporter le soin n&eacute;cessaire
+                    &agrave;
+                    chaque
+                    patient&nbsp;<br />Actuelement, la saisie des donn&eacute;es m&eacute;dicales
+                    (&eacute;cographies,
+                    radiographies, EEG) dans le DPI se fait manuellement, ce qui peut prendre du temps et peut
+                    entrer
+                    certains
+                    probl&egrave;mes.<br />
+                    Pour mettre en contexte, le centre hospitalier de Saint-Di&eacute; est dot&eacute;
+                    d&#39;approximativement
+                    <span data-darkreader-inline-bgcolor=""
+                        style="--darkreader-inline-bgcolor:#9a2e22; background-color:#c0392b">XX</span> appareils
+                    biom&eacute;dicaux.
+                </p>
+                <h2>Définition du problème</h2>
+                <h3>Problematique</h3>
+                <blockquote>
+                    <p style="text-align:justify"><span style="font-size:16px"><em><strong>Comment automatiser
+                                    l'intégration des
+                                    données médicales (récupérées des appareils de diagnostic médicaux) de manière
+                                    sécurise dans
+                                    les dossiers patients informatisés ?</strong></em></span></p>
+                </blockquote>
+                <p style="text-align:justify">La sollution actuelle (saisi manuelle des resultats) est lente et
+                    source
+                    d&#39;erreure: du a la nature manuelle de saisi, les donnees n&#39;apparais pas instantement
+                    dans le
+                    DPI du
+                    patient, ce qui pourrait provoquer une redondance de donnees. <u>Un patient peut subir un
+                        m&ecirc;me
+                        test
+                        plus d&#39;une fois car certains m&eacute;decins peuvent ordonner les m&ecirc;mes analyses
+                        si
+                        celui-ci
+                        n&#39;&eacute;tait pas pr&eacute;sent dans le DPI lors des premi&egrave;res
+                        analyses.</u><span style="color: red;"> (A REFORMULER?)</span><br />
+                    D&ucirc; &agrave; la nature manuelle de la tache, il est &eacute;galement possible (m&ecirc;me
+                    si
+                    c&#39;est
+                    <strong><em>tr&egrave;s</em></strong> rare) d&#39;affecter les r&eacute;sultats au mauvais
+                    patient
+                    ce qui
+                    pourrait poser beaucoup des probl&egrave;mes.&nbsp;
+                </p>
+                <p style="text-align:justify">
+                    De plus, le centre hospitalier est dot&eacute; des diff&eacute;rents types de machines qui
+                    proviennent de
+                    diff&eacute;rentes marques, ce qui provoque une fragmentation concernant la proc&eacute;dure
+                    d&#39;int&eacute;gration des donn&eacute;es, car elle peut &ecirc;tre diff&eacute;rente en
+                    fonction
+                    de la
+                    marque. Cela veut aussi dire que certaines informations concernant un patient se trouve sur
+                    plusieurs
+                    logiciels differents.</p>
 
-        <ul>
-            <li style="text-align: justify;">Alternant:&nbsp;OLTEAN&nbsp;Petru</li>
-            <li style="text-align: justify;">
-                &Eacute;tablissement&nbsp;d&#39;accueil:&nbsp;Centre&nbsp;
-                Hospitalier&nbsp;Saint-Charles&nbsp;de&nbsp;Saint-Di&eacute;
-            </li>
-            <li style="text-align: justify;">
-                Dur&eacute;e&nbsp;d&#39;alternance:&nbsp;1&nbsp;an,&nbsp;Octobre&nbsp;2021&nbsp;-&nbsp;Octobre&nbsp;2022
-            </li>
-            <li style="text-align: justify;">
-                Sp&eacute;cialit&eacute;:&nbsp;Applications&nbsp;Web&nbsp;&ndash;&nbsp;Applications&nbsp;
-                Mobiles&nbsp;et&nbsp;Internet&nbsp;des&nbsp;objets
-            </li>
-            <li style="text-align: justify;">Tuteur&nbsp;p&eacute;dagogique:&nbsp;MEDINA&nbsp;Emmanuel</li>
-            <li style="text-align: justify;">Tuteur proffesionnel: GRANGE Marie&nbsp;</li>
-        </ul>
-        <br />
+                <h2>Étude de l'existant / solution actuelle</h2>
+                <p style="text-align:justify">A l&#39;heure actuelle, l&#39;affectation des donn&eacute;es n&#39;est
+                    pas
+                    automatis&eacute;e. Les r&eacute;sultats sont soit scann&eacute;es&nbsp;et rattaches au DPI
+                    patient
+                    de
+                    mani&egrave;re manuelle, soit mises dans les dossiers physiques des patients par les
+                    archivistes.
+                    Cela
+                    n&#39;est &eacute;videment&nbsp;pas la solution la plus efficace car du a la nature de saisie
+                    manuelle des
+                    donn&eacute;es, plusieurs probl&egrave;mes puis appara&icirc;tre.<br />
+                    Pour le moment, il n&#39;y a pas une solution compl&egrave;te sur le marche, et il faut donc en
+                    d&eacute;velopper une a l&#39;interne.<br />
+                    Le logiciel Patient Connect propose par Enovacom est une interface entre les machines et le DPI
+                    mais
+                    il faut
+                    quand-m&ecirc;me&nbsp;faire communiquer les machines et le DPI avec l&#39;interface.</p>
+                <h2>Description fonctionnelle des besoins</h2>
+                <p style="text-align:justify">Le but de cette application est de rationaliser et automatiser le
+                    processus
+                    d&rsquo;int&eacute;gration des donnes patients dans leurs dossiers informatisé afin de rendre le
+                    service m&eacute;dical
+                    plus efficace et d&#39;&eacute;vier les redondances.<br />
+                    Cela encadre &eacute;galement une mise a jour du serveur h&ocirc;te (application
+                    h&eacute;berg&eacute; en
+                    interne)&nbsp;et la mise en place d&#39;un nouveau r&eacute;seau WIFI.<br />
+                    Une collaboration avec l&#39;entreprise Enovacom est n&eacute;cessaires pour la mise en place de
+                    l&#39;interface qui communiqu&eacute; avec les appareils et le logiciel g&eacute;rant le DPI</p>
+                <p style="text-align:justify">Fonction principale:&nbsp; r&eacute;cup&eacute;rer les
+                    r&eacute;sultats
+                    d&#39;examens de l&rsquo;&eacute;quipement biom&eacute;dical et les affecter aux DPI
+                    correspondants.
+                </p>
+                <p style="text-align:justify">Autres fonctions:</p>
+                <ul>
+                    <li style="text-align:justify">s&eacute;curisation&nbsp;d&rsquo;envoi des donn&eacute;es&nbsp;
+                    </li>
+                    <li style="text-align:justify">identification des patients et du personnel</li>
+                    <li style="text-align:justify">syst&egrave;mes&nbsp;d&#39;authentification</li>
+                    <li style="text-align:justify">op&eacute;rations sans fille (WIFI) afin de rester mobile</li>
+                    <li style="text-align:justify; color: red">A COMLETER OU MODIFIER</li>
+                </ul>
+                <h2>Description des besoins technique</h2>
+                <p style="color: red;">A COMLETER OU REDEFINIR</p>
+                <ul>
+                    <li>interface centralis&eacute;e Patient Connect (Enovacom)&nbsp;</li>
+                    <li>communication par le protocole HL7 &amp; IHE</li>
+                    <li>s&eacute;curisation des donn&eacute;es</li>
+                    <li>affectation des donn&eacute;es aux patients (avant la proc&eacute;dure)</li>
+                    <li>remont&eacute;e en directe des donn&eacute;es pendant la proc&eacute;dure&nbsp;</li>
+                    <li>identification des utilisateurs (assistantes, m&eacute;decins, infirmi&egrave;res...) avant
+                        la
+                        relev&eacute;e des informations</li>
+                    <li>syst&egrave;mes d&rsquo;envois par un r&eacute;seau wifi interne (wireless, sans c&acirc;ble
+                        Ethernet)
+                        pour les appareils mobiles et chariots (tour de soins par exemple)</li>
+                    <li>connections permanente&nbsp;pour les appareils fixes, transmission possible par Ethernet
+                        (soins
+                        continue
+                        par exemple)</li>
+                    <li>pr&eacute;voir les cas d&#39;utilisation possibles (mobiles ou fixes) et adapter
+                        l&#39;interface
+                        en
+                        cons&eacute;quence</li>
+                    <li>Int&eacute;gration de Patient Connect au DPI actuel (H&ocirc;pital Manager) pour la renvoie
+                        des
+                        donn&eacute;es et pour l&#39;authentification (SSO) du personnel (&eacute;viter
+                        l&#39;authentification
+                        redondante)</li>
+                    <li>mise a jour du serveur qui eberge envoacom (server 2008 -&gt; server 2019) pour accommoder
+                        la
+                        nouvelle
+                        interface et pour augmenter la s&eacute;curit&eacute; des donn&eacute;es mais aussi pour
+                        &eacute;viter
+                        l&rsquo;instabilit&eacute; du serveur</li>
+                    <li>mise a jour du serveur pr&eacute;vue janvier-f&eacute;vrier 2022</li>
+                </ul>
+                <h2>Enveloppe budgetaire</h2>
+                <p style="color: red;">A VOIR</p>
+                <h2>Planning provisionnel </h2>
+                <p style="color: red;">A COMPLETER</p>
+                <div class="gantt"><img src="https://i.imgur.com/zqbFH6B.png" alt=""></div>
+                <h2>Contraintes</h2>
+                <p style="color: red;">A COMPLETER</p>
+            </div>
+        </div>
     </div>
-    <div class="spacer" id="sujet"></div>
-    <div class="article">
-        <h1 style="text-align: center;">Sujet</h1>
-        <blockquote>
-            <p style="text-align:justify"><span
-                    style="font-size:16px"><em><strong>&quot;Mise&nbsp;en&nbsp;place&nbsp;d&#39;interfaces&nbsp;entre&nbsp;les&nbsp;&eacute;quipements&nbsp;biom&eacute;dicaux&nbsp;pour&nbsp;l'envoi&nbsp;des&nbsp;r&eacute;sultats&nbsp;d&#39;examen&nbsp;vers&nbsp;le&nbsp;logiciel&nbsp;de&nbsp;dossier&nbsp;patient&nbsp;informatis&eacute;&nbsp;(DPI)
-                            .&quot;</strong></em></span></p>
-        </blockquote>
-
-
-        <p>Objectifs de l&#39;alternance:</p>
-
-        <ul>
-            <li>Valider les &eacute;l&eacute;ments n&eacute;cessaires &agrave; envoyer, et la zone
-                d&#39;int&eacute;gration dans le DPI</li>
-            <li>Prise&nbsp;en&nbsp;main&nbsp;de&nbsp;notre&nbsp;logiciel&nbsp;d&#39;interfaces&nbsp;(EAI)
-                Enovacom&nbsp;et&nbsp;respect&nbsp;des&nbsp;r&egrave;gles&nbsp;de&nbsp;param&eacute;trages&nbsp;
-                existant&nbsp;pour&nbsp;faciliter&nbsp;le&nbsp;support
-            </li>
-            <li>Param&eacute;trer l&#39;envoi facile des informations en garantissant leur v&eacute;racit&eacute;, leur
-                int&eacute;grit&eacute;, leur s&eacute;curit&eacute;, en corr&eacute;lation avec les
-                diff&eacute;rents
-                prestataires (mat&eacute;riels biom&eacute;dicaux, d&eacute;veloppeur DPI)</li>
-            <li>Permettre un suivi optimal des &eacute;changes et un d&eacute;bogage efficace en cas de souci de
-                l&#39;interface</li>
-            <li>Fournir la documentation n&eacute;cessaire au maintien de l&#39;interface ainsi cr&eacute;&eacute;e</li>
-        </ul>
-        <br />
-    </div>
-    <div class="spacer" id="contact"></div>
-    <div class="article">
-        <h1 style="text-align: center;">Contact</h1>
-        <ul>
-            <li style="text-align: justify;">OLTEAN Petru (alternant):&nbsp;<a style="color: rgb(106, 158, 255);"
-                    href="mailto:petru.oltean5@etu.univ-lorraine.fr">petru.oltean5@etu.univ-lorraine.fr</a></li>
-            <li style="text-align: justify;">MEDINA Emmanuel (tuteur p&eacute;dagogique):&nbsp;<a
-                    style="color: rgb(106, 158, 255);"
-                    href="mailto:emmanuel.medina@univ-lorraine.fr">emmanuel.medina@univ-lorraine.fr</a></li>
-            <li style="text-align: justify;">GRANGE Marie&nbsp;(tuteur proffesionnel):&nbsp;<a
-                    style="color: rgb(106, 158, 255);" href="mailto:marie.grange@ch-saintdie.fr"
-                    target="_blank">marie.grange@ch-saintdie.fr</a></li>
-            <li style="text-align: justify;">COSYNS J&eacute;r&eacute;my (chef de projet):&nbsp;<a
-                    style="color: rgb(106, 158, 255);" href="mailto:jeremy.cosyns@ch-saintdie.fr"
-                    target="_blank">jeremy.cosyns@ch-saintdie.fr</a></li>
-        </ul>
-        <br />
-    </div>
-    <div class="spacer" id="cdc"></div>
-    <div class="article">
-        <h1 style="text-align:center">Cahier des charges</h1>
-        <br />
-        <h2>Mise en situation</h2>
-        <p style="text-align:justify">Pour traiter leurs patients, les m&eacute;decins ont imp&eacute;rativement besoin
-            de mat&eacute;riels adapt&eacute;, dont des appareils biom&eacute;dicaux pour effectuer des tests,
-            d&eacute;clarer un diagnostic ou-bien effectuer des soins.<br />
-            Ces appareils sont indispensables pour assurer le bon fonctionnement du milieu hospitalier, pour permettre
-            et ou faciliter la pratique des m&eacute;decins et d&#39;apporter le soin n&eacute;cessaire &agrave; chaque
-            patient&nbsp;<br />Actuelement, la saisie des donn&eacute;es m&eacute;dicales (&eacute;cographies,
-            radiographies, EEG) dans le DPI se fait manuellement, ce qui peut prendre du temps et peut entrer certains
-            probl&egrave;mes.<br />
-            Pour mettre en contexte, le centre hospitalier de Saint-Di&eacute; est dot&eacute; d&#39;approximativement
-            <span data-darkreader-inline-bgcolor=""
-                style="--darkreader-inline-bgcolor:#9a2e22; background-color:#c0392b">XX</span> appareils
-            biom&eacute;dicaux.
-        </p>
-        <h2>Définition du problème</h2>
-        <h3>Problematique</h3>
-        <blockquote>
-            <p style="text-align:justify"><span style="font-size:16px"><em><strong>Comment automatiser l'intégration des
-                            données médicales (récupérées des appareils de diagnostic médicaux) de manière sécurise dans
-                            les dossiers patients informatisés ?</strong></em></span></p>
-        </blockquote>
-        <p style="text-align:justify">La sollution actuelle (saisi manuelle des resultats) est lente et source
-            d&#39;erreure: du a la nature manuelle de saisi, les donnees n&#39;apparais pas instantement dans le DPI du
-            patient, ce qui pourrait provoquer une redondance de donnees. <u>Un patient peut subir un m&ecirc;me test
-                plus d&#39;une fois car certains m&eacute;decins peuvent ordonner les m&ecirc;mes analyses si celui-ci
-                n&#39;&eacute;tait pas pr&eacute;sent dans le DPI lors des premi&egrave;res analyses.</u><span style="color: red;"> (A REFORMULER?)</span><br />
-            D&ucirc; &agrave; la nature manuelle de la tache, il est &eacute;galement possible (m&ecirc;me si c&#39;est
-            <strong><em>tr&egrave;s</em></strong> rare) d&#39;affecter les r&eacute;sultats au mauvais patient ce qui
-            pourrait poser beaucoup des probl&egrave;mes.&nbsp;
-        </p>
-        <p style="text-align:justify">
-            De plus, le centre hospitalier est dot&eacute; des diff&eacute;rents types de machines qui proviennent de
-            diff&eacute;rentes marques, ce qui provoque une fragmentation concernant la proc&eacute;dure
-            d&#39;int&eacute;gration des donn&eacute;es, car elle peut &ecirc;tre diff&eacute;rente en fonction de la
-            marque. Cela veut aussi dire que certaines informations concernant un patient se trouve sur plusieurs
-            logiciels differents.</p>
-
-        <h2>Étude de l'existant / solution actuelle</h2>
-        <p style="text-align:justify">A l&#39;heure actuelle, l&#39;affectation des donn&eacute;es n&#39;est pas
-            automatis&eacute;e. Les r&eacute;sultats sont soit scann&eacute;es&nbsp;et rattaches au DPI patient de
-            mani&egrave;re manuelle, soit mises dans les dossiers physiques des patients par les archivistes. Cela
-            n&#39;est &eacute;videment&nbsp;pas la solution la plus efficace car du a la nature de saisie manuelle des
-            donn&eacute;es, plusieurs probl&egrave;mes puis appara&icirc;tre.<br />
-            Pour le moment, il n&#39;y a pas une solution compl&egrave;te sur le marche, et il faut donc en
-            d&eacute;velopper une a l&#39;interne.<br />
-            Le logiciel Patient Connect propose par Enovacom est une interface entre les machines et le DPI mais il faut
-            quand-m&ecirc;me&nbsp;faire communiquer les machines et le DPI avec l&#39;interface.</p>
-        <h2>Description fonctionnelle des besoins</h2>
-        <p style="text-align:justify">Le but de cette application est de rationaliser et automatiser le processus
-            d&rsquo;int&eacute;gration des donnes patients dans leurs dossiers informatisé afin de rendre le service m&eacute;dical
-            plus efficace et d&#39;&eacute;vier les redondances.<br />
-            Cela encadre &eacute;galement une mise a jour du serveur h&ocirc;te (application h&eacute;berg&eacute; en
-            interne)&nbsp;et la mise en place d&#39;un nouveau r&eacute;seau WIFI.<br />
-            Une collaboration avec l&#39;entreprise Enovacom est n&eacute;cessaires pour la mise en place de
-            l&#39;interface qui communiqu&eacute; avec les appareils et le logiciel g&eacute;rant le DPI</p>
-        <p style="text-align:justify">Fonction principale:&nbsp; r&eacute;cup&eacute;rer les r&eacute;sultats
-            d&#39;examens de l&rsquo;&eacute;quipement biom&eacute;dical et les affecter aux DPI correspondants.</p>
-        <p style="text-align:justify">Autres fonctions:</p>
-
-        <ul>
-            <li style="text-align:justify">s&eacute;curisation&nbsp;d&rsquo;envoi des donn&eacute;es&nbsp;</li>
-            <li style="text-align:justify">identification des patients et du personnel</li>
-            <li style="text-align:justify">syst&egrave;mes&nbsp;d&#39;authentification</li>
-            <li style="text-align:justify">op&eacute;rations sans fille (WIFI) afin de rester mobile</li>
-            <li style="text-align:justify; color: red">A COMLETER OU MODIFIER</li>
-        </ul>
-        <h2>Description des besoins technique</h2>
-        <p style="color: red;">A COMLETER OU REDEFINIR</p>
-        <ul>
-            <li>interface centralis&eacute;e Patient Connect (Enovacom)&nbsp;</li>
-            <li>communication par le protocole HL7 &amp; IHE</li>
-            <li>s&eacute;curisation des donn&eacute;es</li>
-            <li>affectation des donn&eacute;es aux patients (avant la proc&eacute;dure)</li>
-            <li>remont&eacute;e en directe des donn&eacute;es pendant la proc&eacute;dure&nbsp;</li>
-            <li>identification des utilisateurs (assistantes, m&eacute;decins, infirmi&egrave;res...) avant la
-                relev&eacute;e des informations</li>
-            <li>syst&egrave;mes d&rsquo;envois par un r&eacute;seau wifi interne (wireless, sans c&acirc;ble
-                Ethernet)
-                pour les appareils mobiles et chariots (tour de soins par exemple)</li>
-            <li>connections permanente&nbsp;pour les appareils fixes, transmission possible par Ethernet (soins
-                continue
-                par exemple)</li>
-            <li>pr&eacute;voir les cas d&#39;utilisation possibles (mobiles ou fixes) et adapter l&#39;interface en
-                cons&eacute;quence</li>
-            <li>Int&eacute;gration de Patient Connect au DPI actuel (H&ocirc;pital Manager) pour la renvoie des
-                donn&eacute;es et pour l&#39;authentification (SSO) du personnel (&eacute;viter
-                l&#39;authentification
-                redondante)</li>
-            <li>mise a jour du serveur qui eberge envoacom (server 2008 -&gt; server 2019) pour accommoder la
-                nouvelle
-                interface et pour augmenter la s&eacute;curit&eacute; des donn&eacute;es mais aussi pour
-                &eacute;viter
-                l&rsquo;instabilit&eacute; du serveur</li>
-            <li>mise a jour du serveur pr&eacute;vue janvier-f&eacute;vrier 2022</li>
-        </ul>
-        <h2>Enveloppe budgetaire</h2>
-        <p style="color: red;">A VOIR</p>
-        <h2>Planning provisionnel </h2>
-        <p style="color: red;">A COMPLETER</p>
-        <div class="gantt"><img src="https://i.imgur.com/zqbFH6B.png" alt=""></div>
-        <h2>Contraintes</h2>
-        <p style="color: red;">A COMPLETER</p>
-
-
-        <br />
-    </div>
-    <footer>
-        <p>OLTEAN Petru © 2021 | <a style="color: rgb(106, 158, 255);" href="http://www.ch-saintdie.fr/">Centre
+    <div class="col-lg-2"></div>
+    <footer class="footer mt-auto py-3 bg-light text-center">
+        <p>OLTEAN Petru © 2022 | <a style="color: rgb(106, 158, 255);" href="http://www.ch-saintdie.fr/">Centre
                 Hospitalier Saint-Charles</a> X <a style="color: rgb(106, 158, 255);"
-                href="https://iutsd.univ-lorraine.fr/">IUT Saint-Dié</a> </p>
+                href="https://iutsd.univ-lorraine.fr/">IUT Saint-Dié</a> | V1.0</p>
     </footer>
-
 </body>
-<script>
-    const nav = document.querySelector('#nav');
-    let navTop = nav.offsetTop;
-
-    function fixedNav() {
-        if (window.scrollY >= navTop) {
-            nav.classList.add('fixed');
-        } else {
-            nav.classList.remove('fixed');
-        }
-    }
-
-    window.addEventListener('scroll', fixedNav);
-    var mybutton = document.getElementById("topBtn");
-
-    window.onscroll = function () { scrollFunction() };
-
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            mybutton.style.display = "block";
-        } else {
-            mybutton.style.display = "none";
-        }
-    }
-
-    function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }
-</script>
 
 </html>
