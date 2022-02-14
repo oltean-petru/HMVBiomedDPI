@@ -11,9 +11,9 @@
     <script>
         var height = $(window).height() - 50;
         $(".main").height(height);
-        $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();   
-});
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
     </script>
     <style>
         /* Remove the navbar's default margin-bottom and rounded borders */
@@ -88,6 +88,28 @@
             white-space: nowrap;
         }
 
+        textarea.code {
+            background-color: #242424;
+            padding: 20px;
+            color: white;
+            white-space: pre;
+
+            width: 98%;
+            max-width: 98%;
+            height: 50%;
+
+            border-style: solid;
+            border-color: black;
+            border-width: 1px;
+            margin: 10px;
+            overflow: scroll;
+
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            text-overflow: nowrap;
+
+        }
+
         ::-webkit-scrollbar {
             background-color: rgb(0, 0, 0);
             width: 16px
@@ -134,21 +156,27 @@
                     <li class="active"><a href="#home">Home</a></li>
                     <li><a href="#sujet">Sujet</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cahier des charges <span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="#">Mise en situation</a></li>
-                        <li><a href="#">Définition du problème</a></li>
-                        <li><a href="#">Étude de l'existant</a></li>
-                        <li><a href="#">Description fonctionnelle des besoins</a></li>
-                        <li><a href="#">Besoins technique</a></li>
-                        <li><a href="#">Planning provisionnel</a></li>
-                        <li><a href="#">contraintes</a></li>
-                      </ul>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cahier des charges
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#ms">Mise en situation</a></li>
+                            <li><a href="#pb">Définition du problème</a></li>
+                            <li><a href="#et">Étude de l'existant</a></li>
+                            <li><a href="#dfb">Description fonctionnelle des besoins</a></li>
+                            <li><a href="#dbt">Besoins technique</a></li>
+                            <li><a href="#pp">Planning provisionnel</a></li>
+                            <li><a href="#cont">contraintes</a></li>
+                        </ul>
                     </li>
-                  </ul>
-                  <ul class="nav navbar-nav navbar-right">
-                    <li><p style="color: #a0a0a5;">modifiée le: 09/02/2022</p></li>
-                  </ul>
+                    <li><a href="#hl7">HL7</a></li>
+                    <li><a href="#epc">Patient Connect</a></li>
+                    <li><a href="#muse">MUSE</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <p style="color: #a0a0a5;">modifiée le: 14/02/2022</p>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -160,7 +188,7 @@
                 <h1 id="home">Bienvennue!</h1>
                 <br>
                 <p style="text-align:justify">
-                    Cette page a pour but de vous présenter le projet d'alternance LP AMIO 2021-2022. 
+                    Cette page a pour but de vous présenter le projet d'alternance LP AMIO 2021-2022.
                 </p>
                 <p style="text-align:justify"><strong>Contexte:</strong></p>
                 <ul>
@@ -189,7 +217,9 @@
                 </blockquote>
                 <p>Objectifs du projet:</p>
                 <ul>
-                    <li>Valider les &eacute;l&eacute;ments n&eacute;cessaires afin d&#39;int&eacute;grer les donn&eacute;es dans le <u data-toggle="tooltip" title="Dossier patient informatisé"> DPI</u></li>
+                    <li>Valider les &eacute;l&eacute;ments n&eacute;cessaires afin d&#39;int&eacute;grer les
+                        donn&eacute;es dans le <u data-toggle="tooltip" title="Dossier patient informatisé"> DPI</u>
+                    </li>
                     <li>Prise&nbsp;en&nbsp;main&nbsp;de&nbsp;notre&nbsp;logiciel&nbsp;d&#39;interfaces&nbsp;(EAI)
                         Enovacom&nbsp;et&nbsp;respect&nbsp;des&nbsp;r&egrave;gles&nbsp;de&nbsp;param&eacute;trages&nbsp;
                         existant&nbsp;pour&nbsp;faciliter&nbsp;le&nbsp;support
@@ -224,7 +254,7 @@
                 </ul>
                 <hr>
                 <h1 id="cdc">Cahier des charges</h1>
-                <h2>Mise en situation</h2>
+                <h2 id="ms">Mise en situation</h2>
                 <p style="text-align:justify">Pour traiter leurs patients, les m&eacute;decins ont
                     imp&eacute;rativement
                     besoin
@@ -248,7 +278,7 @@
                         style="--darkreader-inline-bgcolor:#9a2e22; background-color:#c0392b">XX</span> appareils
                     biom&eacute;dicaux.
                 </p>
-                <h2>Définition du problème</h2>
+                <h2 id="pb">Définition du problème</h2>
                 <h3>Problematique</h3>
                 <blockquote>
                     <p style="text-align:justify"><span style="font-size:16px"><em><strong>Comment automatiser
@@ -262,14 +292,9 @@
                     d&#39;erreure: du a la nature manuelle de saisi, les donnees n&#39;apparais pas instantement
                     dans le
                     DPI du
-                    patient, ce qui pourrait provoquer une redondance de donnees. <u>Un patient peut subir un
-                        m&ecirc;me
-                        test
-                        plus d&#39;une fois car certains m&eacute;decins peuvent ordonner les m&ecirc;mes analyses
-                        si
-                        celui-ci
-                        n&#39;&eacute;tait pas pr&eacute;sent dans le DPI lors des premi&egrave;res
-                        analyses.</u><span style="color: red;"> (A REFORMULER?)</span><br />
+                    patient, ce qui pourrait provoquer une redondance de donnees. Un médecin peut ordonner une analyse,
+                    malgré le fait que le patient a déjà effectue cette même analyse
+                    (car les résultats ne sont pas présents dans le DPI). <br />
                     D&ucirc; &agrave; la nature manuelle de la tache, il est &eacute;galement possible (m&ecirc;me
                     si
                     c&#39;est
@@ -289,10 +314,10 @@
                     plusieurs
                     logiciels differents.</p>
 
-                <h2>Étude de l'existant / solution actuelle</h2>
+                <h2 id="et">Étude de l'existant / solution actuelle</h2>
                 <p style="text-align:justify">A l&#39;heure actuelle, l&#39;affectation des donn&eacute;es n&#39;est
                     pas
-                    automatis&eacute;e. Les r&eacute;sultats sont soit scann&eacute;es&nbsp;et rattaches au DPI
+                    automatis&eacute;e. Les r&eacute;sultats sont soit scann&eacute;es&nbsp;et rattachés au DPI
                     patient
                     de
                     mani&egrave;re manuelle, soit mises dans les dossiers physiques des patients par les
@@ -301,13 +326,12 @@
                     n&#39;est &eacute;videment&nbsp;pas la solution la plus efficace car du a la nature de saisie
                     manuelle des
                     donn&eacute;es, plusieurs probl&egrave;mes puis appara&icirc;tre.<br />
-                    Pour le moment, il n&#39;y a pas une solution compl&egrave;te sur le marche, et il faut donc en
-                    d&eacute;velopper une a l&#39;interne.<br />
+                    Pour le moment, il n&#39;y a pas une solution compl&egrave;te sur le marché, et il faut donc integrer plusieurs solutions existants.<br />
                     Le logiciel Patient Connect propose par Enovacom est une interface entre les machines et le DPI
                     mais
                     il faut
                     quand-m&ecirc;me&nbsp;faire communiquer les machines et le DPI avec l&#39;interface.</p>
-                <h2>Description fonctionnelle des besoins</h2>
+                <h2 id="dfb">Description fonctionnelle des besoins</h2>
                 <p style="text-align:justify">Le but de cette application est de rationaliser et automatiser le
                     processus
                     d&rsquo;int&eacute;gration des donnes patients dans leurs dossiers informatisé afin de rendre le
@@ -332,7 +356,7 @@
                     <li style="text-align:justify">op&eacute;rations sans fille (WIFI) afin de rester mobile</li>
                     <li style="text-align:justify; color: red">A COMLETER OU MODIFIER</li>
                 </ul>
-                <h2>Description des besoins technique</h2>
+                <h2 id="dbt">Description des besoins technique</h2>
                 <p style="color: red;">A COMLETER OU REDEFINIR</p>
                 <ul>
                     <li>interface centralis&eacute;e Patient Connect (Enovacom)&nbsp;</li>
@@ -369,18 +393,595 @@
                 </ul>
                 <h2>Enveloppe budgetaire</h2>
                 <p style="color: red;">A VOIR</p>
-                <h2>Planning provisionnel </h2>
+                <h2 id="pp">Planning provisionnel </h2>
                 <p style="color: red;">A COMPLETER</p>
                 <div class="gantt"><img src="https://i.imgur.com/zqbFH6B.png" alt=""></div>
-                <h2>Contraintes</h2>
+                <br>
+                <p style="text-align:justify"><strong>Déployement serveur MUSE:</strong></p>
+                <div class="gantt"><img src="https://i.imgur.com/fvTkvP7.png" alt=""></div>
+                <h2 id="cont">Contraintes</h2>
                 <p style="color: red;">A COMPLETER</p>
+                <hr>
+                <h1 id="hl7" style="text-align: center;">Protocole HL7</h1>
+                <h2>Presentation</h2>
+                <P style="text-align:justify;">
+                    <strong>HL7</strong> (Health Level 7) est, comme son nom l'indique, est un protocole d'échange
+                    d'informations cliniques, mais aussi administratifs et financières entre divers systèmes
+                    d'informations
+                    hospitaliers et qui intègre des diverses normes internationales ISO.<br />
+                    Le 7 (du nom HL7) fais référence à la couche du modèle <a style="color: rgb(106, 158, 255);"
+                        href="https://fr.wikipedia.org/wiki/Mod%C3%A8le_OSI">OSI</a> (la couche application).
+                </P>
+                <h2>Structure</h2>
+                <P style="text-align:justify;">
+                    Un message HL7 est composé de plusieurs segments contenant divers informations sur le patient.
+                    <br />
+                    Voici un message type HL7 structuré:
+                </P>
+                <textarea rows="22" disabled class="code">
+ MSH|^~&|MS4ADT|001|UST|001|20130716075007||ADT^A08|00000000012988788|P|2.3
+ EVN|A08|20130716075004||ITOI|HIMACARRAM
+ PID|1|010107127^^^MS4^PN^|160922^^^MS4^MR^001|160922^^^MS4^MR^001|WANDA^LUXENBURG^IVANOVNA^^||19330910|F||C|STRAWBERRY AVE^FOUR OAKS LODGE^ALBUKERKA^CA^98765^USA^^||(111)222-3333||ENG|W|CHR|11115555555^^^MS4001^AN^001|333-22-1111||||OKLAHOMA||||||20120812|Y
+ PD1||||07302^DJANG^EIMING^^^|||U
+ NK1|1|MOCK^LAWRENCE^E^^|Z|4357 COBBLESTONE LANE^^LA CANDADA^CA^91011^^|(818)790-4099||S|||SALESMAN|||KONICA BUSINESS MACHINE|M|M|19610429|||||||||PRE||||||||010061010^^^MS4^PN^||C||572-33-5959
+ NK1|2|MOCK^RUSSEL^^^|Z|3420 LE BETHON ST^^SUNLAND^CA^91040^^|(818)249-3925||R||||||UNKNOWN||M||||||||||UNK||||||||000323302^^^MS4^PN^||T||          1
+ PV1||I|TELE^ 581^ A^001^OCCPD|1|||01552^ANDERSON^CHARLES^A^^^MD^^^^^^^|||MED||||1|||01552^ANDERSON^CHARLES^A^^^MD^^^^^^^|I|666|0401|5||||||||N|||||||E|||001|OCCPD||||201307021300|201307091552|69206.42|69206.42
+ DG1|1|I9|518.81|ACUTE RESPIRATOR FAILURE||A|||||||||0|||||||||||Y
+ DG1|2|I9|518.84|ACUTE & CHR RESP FAILURE||D|||||||||1|||||||||||Y
+ DG1|3|I9|599.0|URIN TRACT INFECTION NOS||D|||||||||2|||||||||||Y
+ DG1|4|I9|427.31|ATRIAL FIBRILLATION||D|||||||||2|||||||||||Y
+ DG1|5|I9|401.9|HYPERTENSION NOS||D|||||||||2|||||||||||Y
+ DG1|6|I9|496|CHR AIRWAY OBSTRUCT NEC||D|||||||||2|||||||||||Y
+ DG1|7|I9|244.9|HYPOTHYROIDISM NOS||D|||||||||2|||||||||||Y
+ DRG|00208
+ PR1|1|I9|9671|CONT INVAS MV-``96 HRS|20130702||||||31853^CRABB^JONATHAN^W^^MD
+ PR1|2|I9|9604|INSERT ENDOTRACHEAL TUBE|20130702||||||31853^CRABB^JONATHAN^W^^MD
+ PR1|3|I9|9394|NEBULIZER THERAPY|2013IN2||354221840|0000007496^RETIRED|||||||||||||||||||||||||||||||||Y|||CHR||||W|||RETIRED|||||||||||||||||(818)249-3361||||||||C0703||||||01552^ANDERSON^CHARLES^A^^MD
+ PR1|4|I9|9390|NON-INVASIVE MECH VENT|20130706||||||01552^ANDERSON^CHARLES^A^^MD
+ GT1|1|010107127^^^MS4^PN^|MOCK^WANDA^J^^|MOCK^LAWRENCE^E^^|2820 SYCAMORE AVE^TWELVE OAKS LODGE^MONTROSE^CA^91214^USA^|(818)249-3361||19301013|F||A|354-22-1840||||RETIRED|^^^^00000^|||||||20130711|||||0000007496|W||||||||Y|||CHR||||||||RETIRED||||||C
+ IN1|1||0401|MEDICARE IP|^^^^|||||||19951001|||MCR|MOCK^WANDA^J^^|A|19301013|2820 SYCAMORE AVE^TWELVE OAKS LODGE^MONTROSE^CA^91214^USA^^^|||1||||||||||||||354221840A|||||||F|^^^^00000^|N||||010107127
+ IN2||354221840|0000007496^RETIRED|||354221840A||||||||||||||||||||||||||||||Y|||CHR||||W|||RETIRED|||||||||||||||||(818)249-3361||||||||C
+ IN1|2||2320|AETNA PPO|PO BOX 14079^PO BOX 14079^LEXINGTON^KY^40512|||081140101400020|RETIRED|||20130101|||COM|MOCK^WANDA^J^^|A|19301013|2820 SYCAMORE AVE^TWELVE OAKS LODGE^MONTROSE^CA^91214^USA^^^|||2||||||||||||||811001556|||||||F|^^^^00000^|N||||010107127           
+                </textarea>
+                <P style="text-align: justify;">
+                    Apres le parsage:
+                </P>
+                <textarea rows="22" disabled class="code">
+ {
+     "resourceType": "Bundle",
+     "type": "transaction",
+     "entry": [
+      {
+       "transaction": {
+        "method": "POST",
+        "url": "/Patient"
+       },
+       "resource": {
+        "id": "REFERENCE_PATIENT_ID",
+        "resourceType": "Patient",
+        "deceasedBoolean": "Y",
+        "birthDate": "1933-10-10T00:00:00.000Z",
+        "gender": "female",
+        "name": [
+         {
+          "given": [
+           "Luxenburg"
+          ],
+          "middle": [
+           "Ivanovna"
+          ],
+          "family": [
+           "Wanda"
+          ],
+          "text": "LUXENBURG IVANOVNA WANDA"
+         }
+        ],
+        "address": [
+         {
+          "line": [
+           "STRAWBERRY AVE",
+           "FOUR OAKS LODGE",
+           "ALBUKERKA"
+          ],
+          "city": "ALBUKERKA",
+          "state": "CA",
+          "postalCode": "98765",
+          "country": "USA",
+          "text": "STRAWBERRY AVE FOUR OAKS LODGE ALBUKERKA CA 98765 USA"
+         }
+        ],
+        "identifier": [
+         {
+          "value": "010107127",
+          "system": "MS4",
+          "type": {
+           "text": "External ID"
+          }
+         },
+         {
+          "value": "160922",
+          "system": "MS4",
+          "type": {
+           "text": "Internal ID"
+          }
+         },
+         {
+          "value": "160922",
+          "system": "MS4",
+          "type": {
+           "text": "Alternate ID"
+          }
+         },
+         {
+          "value": "11115555555",
+          "system": "MS4001",
+          "type": {
+           "text": "Account number"
+          }
+         },
+         {
+          "value": "333-22-1111",
+          "system": "http://hl7.org/fhir/sid/us-ssn",
+          "type": {
+           "text": "Social Security Number"
+          }
+         }
+        ],
+        "telecom": [
+         {
+          "use": "home",
+          "value": "(111)222-3333"
+         }
+        ],
+        "contact": [
+         {
+          "gender": "male",
+          "relationship": {
+           "coding": [
+            {
+             "code": "Z"
+            }
+           ]
+          },
+          "name": {
+           "use": "official",
+           "given": [
+            "LAWRENCE"
+           ],
+           "family": [
+            "MOCK"
+           ],
+           "middle": [
+            "E"
+           ],
+           "text": "LAWRENCE E MOCK"
+          },
+          "address": {
+           "line": [
+            "4357 COBBLESTONE LANE",
+            "LA CANDADA"
+           ],
+           "city": "LA CANDADA",
+           "state": "CA",
+           "postalCode": "91011",
+           "text": "4357 COBBLESTONE LANE  LA CANDADA CA 91011",
+           "use": "Mailing Address"
+          }
+         },
+         {
+          "gender": "male",
+          "relationship": {
+           "coding": [
+            {
+             "code": "Z"
+            }
+           ]
+          },
+          "name": {
+           "use": "official",
+           "given": [
+            "RUSSEL"
+           ],
+           "family": [
+            "MOCK"
+           ],
+           "text": "RUSSEL  MOCK"
+          },
+          "address": {
+           "line": [
+            "3420 LE BETHON ST",
+            "SUNLAND"
+           ],
+           "city": "SUNLAND",
+           "state": "CA",
+           "postalCode": "91040",
+           "text": "3420 LE BETHON ST  SUNLAND CA 91040",
+           "use": "Mailing Address"
+          }
+         }
+        ]
+       }
+      },
+      {
+       "transaction": {
+        "method": "POST",
+        "url": "/Encounter"
+       },
+       "resource": {
+        "resourceType": "Encounter",
+        "class": "I",
+        "identifier": [
+         {
+          "value": "666"
+         }
+        ],
+        "participant": [
+         {
+          "type": {
+           "codings": [
+            {
+             "code": "ATND",
+             "system": "http://hl7.org/fhir/v3/ParticipationType"
+            }
+           ]
+          },
+          "individual": {
+           "reference": "PRACTITIONER_01552"
+          }
+         },
+         {
+          "type": {
+           "codings": [
+            {
+             "code": "ADM",
+             "system": "http://hl7.org/fhir/v3/ParticipationType"
+            }
+           ]
+          },
+          "individual": {
+           "reference": "PRACTITIONER_01552"
+          }
+         }
+        ],
+        "patient": {
+         "reference": "REFERENCE_PATIENT_ID"
+        },
+        "location": {
+         "location": {
+          "reference": "LOCATION_b6295fe37cf9377d0e0f90bc9a6f8242"
+         },
+         "status": "active"
+        }
+       }
+      },
+      {
+       "transaction": {
+        "method": "POST",
+        "url": "/Practitioner"
+       },
+       "resource": {
+        "id": "PRACTITIONER_01552",
+        "resourceType": "Practitioner",
+        "identifier": [
+         {
+          "value": "01552"
+         }
+        ],
+        "name": {
+         "given": [
+          "Charles"
+         ],
+         "middle": [
+          "A"
+         ],
+         "family": [
+          "Anderson"
+         ]
+        }
+       }
+      },
+      {
+       "transaction": {
+        "method": "POST",
+        "url": "/Location"
+       },
+       "resource": {
+        "id": "LOCATION_b6295fe37cf9377d0e0f90bc9a6f8242",
+        "resourceType": "Location",
+        "status": "active",
+        "identifier": [
+         {
+          "value": "581.A"
+         }
+        ],
+        "name": "581.A"
+       }
+      }
+     ]
+ }
+                </textarea>
+                <p style="text-align:justify;">
+                    Voici les elements les plus communs ainsi que leur syntaxe envoyes dans un message HL7:
+                </p>
+                <TABLE border=0 align=justify cellpadding=1 cellspacing=0>
+                    <TR>
+                        <TD width=86 bgcolor=#A5A5A5 align="justify">
+                            <FONT face="Gill Sans MT" text1=10855845|10855845|A5A5A5 color=#FFFFFF><B>CODE</I></FONT>
+                        </TD>
+                        <TD width=240 bgcolor=#A5A5A5 align="justify">
+                            <FONT face="Gill Sans MT" text1=10855845|10855845|A5A5A5 color=#FFFFFF><B>NOM</I></FONT>
+                        </TD>
+                        <TD width=1272 bgcolor=#A5A5A5 align="justify">
+                            <FONT face="Gill Sans MT" text1=10855845|10855845|A5A5A5 color=#FFFFFF><B>DESCTIPTION</I>
+                            </FONT>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD width=86 bgcolor=#5F5F5F align="justify">
+                            <FONT text1=6250335|6250335|5F5F5F color=#FFFFFF>MSH</FONT>
+                        </TD>
+                        <TD width=240 bgcolor=#B3B3B3 align="justify">
+                            <FONT face="Gill Sans MT" text1=11776947|11776947|B3B3B3 color=#000000>Message header</FONT>
+                        </TD>
+                        <TD width=1272 bgcolor=#B3B3B3 align="justify">
+                            <FONT face="Gill Sans MT" text1=11776947|11776947|B3B3B3 color=#000000>Entete du message -
+                                contient
+                                des informations sur l'expediteur et le destinataire du message</FONT>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD width=86 bgcolor=#5F5F5F align="justify">
+                            <FONT text1=6250335|6250335|5F5F5F color=#FFFFFF>EVN</FONT>
+                        </TD>
+                        <TD width=240 bgcolor=#CCCCCC align="justify">
+                            <FONT face="Gill Sans MT" text1=13421772|13421772|CCCCCC color=#000000>Event</FONT>
+                        </TD>
+                        <TD width=1272 bgcolor=#CCCCCC align="justify">
+                            <FONT face="Gill Sans MT" text1=13421772|13421772|CCCCCC color=#000000>Evenement - utilisé
+                                pour
+                                communiquer les informations nécessaires sur les événements déclencheurs aux
+                                applications
+                                réceptrices</FONT>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD width=86 bgcolor=#5F5F5F align="justify">
+                            <FONT face="Gill Sans MT" text1=6250335|6250335|5F5F5F color=#FFFFFF>PID</FONT>
+                        </TD>
+                        <TD width=240 bgcolor=#B3B3B3 align="justify">
+                            <FONT face="Gill Sans MT" text1=11776947|11776947|B3B3B3 color=#000000>Patient ID</FONT>
+                        </TD>
+                        <TD width=1272 bgcolor=#B3B3B3 align="justify">
+                            <FONT face="Gill Sans MT" text1=11776947|11776947|B3B3B3 color=#000000>Indentification du
+                                patient -
+                                contient des informations sur le petient (nom, prenom date de naissance etc...)</FONT>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD width=86 bgcolor=#5F5F5F align="justify">
+                            <FONT text1=6250335|6250335|5F5F5F color=#FFFFFF>MK1</FONT>
+                        </TD>
+                        <TD width=240 bgcolor=#CCCCCC align="justify">
+                            <FONT face="Gill Sans MT" text1=13421772|13421772|CCCCCC color=#000000>Next of kin</FONT>
+                        </TD>
+                        <TD width=1272 bgcolor=#CCCCCC align="justify">
+                            <FONT face="Gill Sans MT" text1=13421772|13421772|CCCCCC color=#000000>Plus proche parent -
+                                contient
+                                des informations sur les autres proches du patient</FONT>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD width=86 bgcolor=#5F5F5F align="justify">
+                            <FONT text1=6250335|6250335|5F5F5F color=#FFFFFF>PV1</FONT>
+                        </TD>
+                        <TD width=240 bgcolor=#B3B3B3 align="justify">
+                            <FONT face="Gill Sans MT" text1=11776947|11776947|B3B3B3 color=#000000>Patient visit</FONT>
+                        </TD>
+                        <TD width=1272 bgcolor=#B3B3B3 align="justify">
+                            <FONT face="Gill Sans MT" text1=11776947|11776947|B3B3B3 color=#000000>Visite du patient -
+                                cntient
+                                des informations sur la (ou les) visites mediacux du patient</FONT>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD width=86 bgcolor=#5F5F5F align="justify">
+                            <FONT text1=6250335|6250335|5F5F5F color=#FFFFFF>DG1</FONT>
+                        </TD>
+                        <TD width=240 bgcolor=#CCCCCC align="justify">
+                            <FONT face="Gill Sans MT" text1=13421772|13421772|CCCCCC color=#000000>Diagnostic</FONT>
+                        </TD>
+                        <TD width=1272 bgcolor=#CCCCCC align="justify">
+                            <FONT face="Gill Sans MT" text1=13421772|13421772|CCCCCC color=#000000>Diagnostic - contient
+                                les
+                                diagnostiques du patient determines par le medicin</FONT>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD width=86 bgcolor=#5F5F5F align="justify">
+                            <FONT face="Gill Sans MT" text1=6250335|6250335|5F5F5F color=#FFFFFF>OBR</FONT>
+                        </TD>
+                        <TD width=240 bgcolor=#B3B3B3 align="justify">
+                            <FONT face="Gill Sans MT" text1=11776947|11776947|B3B3B3 color=#000000>Observation request
+                            </FONT>
+                        </TD>
+                        <TD width=1272 bgcolor=#B3B3B3 align="justify">
+                            <FONT face="Gill Sans MT" text1=11776947|11776947|B3B3B3 color=#000000>Demande d'observation
+                                -
+                                définit les attributs d'une demande particulière de services de diagnostic (par exemple,
+                                laboratoire, ECG) ou d'observations cliniques (par exemple, signes vitaux ou examen
+                                physique)
+                            </FONT>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD width=86 bgcolor=#5F5F5F align="justify">
+                            <FONT text1=6250335|6250335|5F5F5F color=#FFFFFF>PR1</FONT>
+                        </TD>
+                        <TD width=240 bgcolor=#CCCCCC align="justify">
+                            <FONT face="Gill Sans MT" text1=13421772|13421772|CCCCCC color=#000000>Procedure</FONT>
+                        </TD>
+                        <TD width=1272 bgcolor=#CCCCCC align="justify">
+                            <FONT face="Gill Sans MT" text1=13421772|13421772|CCCCCC color=#000000>Procedures - contient
+                                des
+                                informations concernant les divers types de procédures qui pouvant être effectuées sur
+                                le
+                                patient</FONT>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD width=86 bgcolor=#5F5F5F align="justify">
+                            <FONT text1=6250335|6250335|5F5F5F color=#FFFFFF>IN1</FONT>
+                        </TD>
+                        <TD width=240 bgcolor=#B3B3B3 align="justify">
+                            <FONT face="Gill Sans MT" text1=11776947|11776947|B3B3B3 color=#000000>Insurance company
+                            </FONT>
+                        </TD>
+                        <TD width=1272 bgcolor=#B3B3B3 align="justify">
+                            <FONT face="Gill Sans MT" text1=11776947|11776947|B3B3B3 color=#000000>L'assurance -
+                                contient des
+                                informations sur l'assurance maladie du patient</FONT>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD width=86 bgcolor=#5F5F5F align="justify">
+                            <FONT text1=6250335|6250335|5F5F5F color=#FFFFFF>GT1</FONT>
+                        </TD>
+                        <TD width=240 bgcolor=#CCCCCC align="justify">
+                            <FONT face="Gill Sans MT" text1=13421772|13421772|CCCCCC color=#000000>Guarantor</FONT>
+                        </TD>
+                        <TD width=1272 bgcolor=#CCCCCC align="justify">
+                            <FONT face="Gill Sans MT" text1=13421772|13421772|CCCCCC color=#000000>Garant - contient des
+                                informations sur la personne ou l'organisation ayant la responsabilité financière du
+                                paiement
+                            </FONT>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD width=86 bgcolor=#5F5F5F align="justify">
+                            <FONT face="Gill Sans MT" text1=6250335|6250335|5F5F5F color=#FFFFFF>OBX</FONT>
+                        </TD>
+                        <TD width=240 bgcolor=#B3B3B3 align="justify">
+                            <FONT face="Gill Sans MT" text1=11776947|11776947|B3B3B3 color=#000000>Obesrvation segment
+                            </FONT>
+                        </TD>
+                        <TD width=1272 bgcolor=#B3B3B3 align="justify">
+                            <FONT face="Gill Sans MT" text1=11776947|11776947|B3B3B3 color=#000000>Segment d'observation
+                                -
+                                contient les observations (aussi documentsm images..) concernant le patient</FONT>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD width=86 bgcolor=#5F5F5F align="justify">
+                            <FONT face="Gill Sans MT" text1=6250335|6250335|5F5F5F color=#FFFFFF>CTI</FONT>
+                        </TD>
+                        <TD width=240 bgcolor=#CCCCCC align="justify">
+                            <FONT face="Gill Sans MT" text1=13421772|13421772|CCCCCC color=#000000>Clinical trail</FONT>
+                        </TD>
+                        <TD width=1272 bgcolor=#CCCCCC align="justify">
+                            <FONT face="Gill Sans MT" text1=13421772|13421772|CCCCCC color=#000000>Essai clinique -
+                                contient des
+                                informations sur l'essai clinique si applicable</FONT>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD width=86 bgcolor=#4D4D4D align="justify">
+                            <FONT face="Gill Sans MT" text1=5066061|5066061|4D4D4D color=#FFFFFF>&nbsp;</FONT>
+                        </TD>
+                        <TD width=240 bgcolor=#4D4D4D align="justify">
+                            <FONT face="Gill Sans MT" text1=5066061|5066061|4D4D4D color=#FFFFFF>&nbsp;</FONT>
+                        </TD>
+                        <TD width=1272 bgcolor=#4D4D4D align="justify">
+                            <FONT face="Gill Sans MT" text1=5066061|5066061|4D4D4D color=#FFFFFF>&nbsp;</FONT>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD width=86 bgcolor=#5F5F5F align="left">
+                            <FONT face="Gill Sans MT" text1=6250335|6250335|5F5F5F color=#FFFFFF>0x0D</FONT>
+                        </TD>
+                        <TD width=240 bgcolor=#BEBEBE align="left">
+                            <FONT face="Gill Sans MT" text1=12500670|12500670|BEBEBE color=#000000>Marque la fin de
+                                chaque
+                                segment</FONT>
+                        </TD>
+                        <TD width=1272 bgcolor=#4D4D4D align="justify">
+                            <FONT face="Gill Sans MT" text1=5066061|5066061|4D4D4D color=#FFFFFF>&nbsp;</FONT>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD width=86 bgcolor=#5F5F5F align="justify">
+                            <FONT face="Gill Sans MT" text1=6250335|6250335|5F5F5F color=#FFFFFF>|</FONT>
+                        </TD>
+                        <TD width=240 bgcolor=#9E9E9E align="justify">
+                            <FONT face="Gill Sans MT" text1=10395294|10395294|9E9E9E color=#000000>Délimiteur composite
+                            </FONT>
+                        </TD>
+                        <TD width=1272 bgcolor=#4D4D4D align="justify">
+                            <FONT face="Gill Sans MT" text1=5066061|5066061|4D4D4D color=#FFFFFF>&nbsp;</FONT>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD width=86 bgcolor=#5F5F5F align="justify">
+                            <FONT face="Gill Sans MT" text1=6250335|6250335|5F5F5F color=#FFFFFF>^</FONT>
+                        </TD>
+                        <TD width=240 bgcolor=#BEBEBE align="justify">
+                            <FONT face="Gill Sans MT" text1=12500670|12500670|BEBEBE color=#000000>Délimiteur
+                                sous-composite
+                            </FONT>
+                        </TD>
+                        <TD width=1272 bgcolor=#4D4D4D align="justify">
+                            <FONT face="Gill Sans MT" text1=5066061|5066061|4D4D4D color=#FFFFFF>&nbsp;</FONT>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD width=86 bgcolor=#5F5F5F align="left">
+                            <FONT face="Gill Sans MT" text1=6250335|6250335|5F5F5F color=#FFFFFF>&</FONT>
+                        </TD>
+                        <TD width=240 bgcolor=#9E9E9E align="left">
+                            <FONT face="Gill Sans MT" text1=10395294|10395294|9E9E9E color=#000000>Délimiteur
+                                sous-sous-composite</FONT>
+                        </TD>
+                        <TD width=1272 bgcolor=#4D4D4D align="justify">
+                            <FONT face="Gill Sans MT" text1=5066061|5066061|4D4D4D color=#FFFFFF>&nbsp;</FONT>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD width=86 bgcolor=#5F5F5F align="justify">
+                            <FONT face="Gill Sans MT" text1=6250335|6250335|5F5F5F color=#FFFFFF>~</FONT>
+                        </TD>
+                        <TD width=240 bgcolor=#BEBEBE align="justify">
+                            <FONT face="Gill Sans MT" text1=12500670|12500670|BEBEBE color=#000000>Sépare les champs
+                                répétés
+                            </FONT>
+                        </TD>
+                        <TD width=1272 bgcolor=#4D4D4D align="justify">
+                            <FONT face="Gill Sans MT" text1=5066061|5066061|4D4D4D color=#FFFFFF>&nbsp;</FONT>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD width=86 bgcolor=#5F5F5F align="justify">
+                            <FONT face="Gill Sans MT" text1=6250335|6250335|5F5F5F color=#FFFFFF>\</FONT>
+                        </TD>
+                        <TD width=240 bgcolor=#9E9E9E align="justify">
+                            <FONT face="Gill Sans MT" text1=10395294|10395294|9E9E9E color=#000000>Caractère
+                                d'échappement
+                            </FONT>
+                        </TD>
+                        <TD width=1272 bgcolor=#4D4D4D align="justify">
+                            <FONT face="Gill Sans MT" text1=5066061|5066061|4D4D4D color=#FFFFFF>&nbsp;</FONT>
+                        </TD>
+                    </TR>
+                </TABLE>
+                <hr>
+                <h1 id="epc">Enovacom | Patient Connect</h1>
+                <hr>
+                <h1 id="muse">GE | MUSE</h1>
             </div>
         </div>
     </div>
     <div class="col-lg-2"></div>
     <footer class="footer mt-auto py-3 bg-light text-center">
-        <p>OLTEAN Petru © 2022 | <a style="color: rgb(106, 158, 255);" href="http://www.ch-saintdie.fr/">CHI HMV</a> X <a style="color: rgb(106, 158, 255);"
-                href="https://iutsd.univ-lorraine.fr/">IUT Saint-Dié</a> | V1.1</p>
+        <p>OLTEAN Petru © 2022 | <a style="color: rgb(106, 158, 255);" href="http://www.ch-saintdie.fr/">CHI HMV</a> X
+            <a style="color: rgb(106, 158, 255);" href="https://iutsd.univ-lorraine.fr/">IUT Saint-Dié</a> | V1.2</p>
     </footer>
 </body>
 
