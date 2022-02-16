@@ -38,7 +38,7 @@
         footer {
             background-color: #555;
             color: white;
-            padding: 18px;
+            padding: 9px;
         }
 
         /* On small screens, set height to 'auto' for sidenav and grid */
@@ -66,7 +66,7 @@
             margin-top: 50px;
             overflow-y: scroll;
             overflow-x: hidden;
-            max-height: 88vh;
+            max-height: 90vh;
             scroll-behavior: smooth;
         }
 
@@ -81,6 +81,14 @@
 
         h3 {
             color: rgb(255, 88, 255);
+        }
+
+        .link {
+            color: rgb(106, 158, 255);
+        }
+
+        .justify {
+            text-align: justify;
         }
 
         div.gantt {
@@ -102,7 +110,7 @@
             border-color: black;
             border-width: 1px;
             margin: 10px;
-            overflow: scroll;
+            overflow: auto;
 
             font-family: 'Courier New', Courier, monospace;
             font-size: 14px;
@@ -174,7 +182,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <p style="color: #a0a0a5;">modifiée le: 14/02/2022</p>
+                        <p style="color: #a0a0a5;">modifiée le: 16/02/2022</p>
                     </li>
                 </ul>
             </div>
@@ -187,30 +195,30 @@
             <div class="col-lg-8" style="background-color: #2e3233; color: white;">
                 <h1 id="home">Bienvennue!</h1>
                 <br>
-                <p style="text-align:justify">
+                <p class="justify">
                     Cette page a pour but de vous présenter le projet d'alternance LP AMIO 2021-2022.
                 </p>
-                <p style="text-align:justify"><strong>Contexte:</strong></p>
+                <p class="justify"><strong>Contexte:</strong></p>
                 <ul>
-                    <li style="text-align: justify;">Alternant:&nbsp;OLTEAN&nbsp;Petru</li>
-                    <li style="text-align: justify;">
+                    <li class="justify">Alternant:&nbsp;OLTEAN&nbsp;Petru</li>
+                    <li class="justify">
                         &Eacute;tablissement&nbsp;d&#39;accueil:&nbsp;Centre&nbsp;
                         Hospitalier&nbsp;Saint-Charles&nbsp;de&nbsp;Saint-Di&eacute;
                     </li>
-                    <li style="text-align: justify;">
+                    <li class="justify">
                         Dur&eacute;e&nbsp;d&#39;alternance:&nbsp;1&nbsp;an,&nbsp;Octobre&nbsp;2021&nbsp;-&nbsp;Octobre&nbsp;2022
                     </li>
-                    <li style="text-align: justify;">
+                    <li class="justify">
                         Sp&eacute;cialit&eacute;:&nbsp;Applications&nbsp;Web&nbsp;&ndash;&nbsp;Applications&nbsp;
                         Mobiles&nbsp;et&nbsp;Internet&nbsp;des&nbsp;objets
                     </li>
-                    <li style="text-align: justify;">Tuteur&nbsp;p&eacute;dagogique:&nbsp;MEDINA&nbsp;Emmanuel</li>
-                    <li style="text-align: justify;">Tuteur proffesionnel: GRANGE Marie&nbsp;</li>
+                    <li class="justify">Tuteur&nbsp;p&eacute;dagogique:&nbsp;MEDINA&nbsp;Emmanuel</li>
+                    <li class="justify">Tuteur proffesionnel: GRANGE Marie&nbsp;</li>
                 </ul>
                 <hr>
                 <h1 id="sujet">Sujet</h1>
                 <blockquote>
-                    <p style="text-align:justify"><span style="font-size:16px"><em><strong>"Mise en place
+                    <p class="justify"><span style="font-size:16px"><em><strong>"Mise en place
                                     d'interfaces entre les équipements biomédicaux pour l'envoi des résultats
                                     d'examen vers le logiciel de dossier patient informatisé (DPI)
                                     ."</strong></em></span></p>
@@ -238,24 +246,22 @@
                 <hr>
                 <h1 id="contact">Contact</h1>
                 <ul>
-                    <li style="text-align: justify;">OLTEAN Petru (alternant):&nbsp;<a
-                            style="color: rgb(106, 158, 255);"
+                    <li class="justify">OLTEAN Petru (alternant):&nbsp;<a class="link"
                             href="mailto:petru.oltean5@etu.univ-lorraine.fr">petru.oltean5@etu.univ-lorraine.fr</a>
                     </li>
-                    <li style="text-align: justify;">MEDINA Emmanuel (tuteur p&eacute;dagogique):&nbsp;<a
-                            style="color: rgb(106, 158, 255);"
+                    <li class="justify">MEDINA Emmanuel (tuteur p&eacute;dagogique):&nbsp;<a class="link"
                             href="mailto:emmanuel.medina@univ-lorraine.fr">emmanuel.medina@univ-lorraine.fr</a></li>
-                    <li style="text-align: justify;">GRANGE Marie&nbsp;(tutrice proffesionnel):&nbsp;<a
-                            style="color: rgb(106, 158, 255);" href="mailto:marie.grange@ch-saintdie.fr"
-                            target="_blank">marie.grange@ch-saintdie.fr</a></li>
-                    <li style="text-align: justify;">COSYNS J&eacute;r&eacute;my (chef de projet):&nbsp;<a
-                            style="color: rgb(106, 158, 255);" href="mailto:jeremy.cosyns@ch-saintdie.fr"
-                            target="_blank">jeremy.cosyns@ch-saintdie.fr</a></li>
+                    <li class="justify">GRANGE Marie&nbsp;(tutrice proffesionnel):&nbsp;<a class="link"
+                            href="mailto:marie.grange@ch-saintdie.fr" target="_blank">marie.grange@ch-saintdie.fr</a>
+                    </li>
+                    <li class="justify">COSYNS J&eacute;r&eacute;my (chef de projet):&nbsp;<a class="link"
+                            href="mailto:jeremy.cosyns@ch-saintdie.fr" target="_blank">jeremy.cosyns@ch-saintdie.fr</a>
+                    </li>
                 </ul>
                 <hr>
                 <h1 id="cdc">Cahier des charges</h1>
                 <h2 id="ms">Mise en situation</h2>
-                <p style="text-align:justify">Pour traiter leurs patients, les m&eacute;decins ont
+                <p class="justify">Pour traiter leurs patients, les m&eacute;decins ont
                     imp&eacute;rativement
                     besoin
                     de mat&eacute;riels adapt&eacute;, dont des appareils biom&eacute;dicaux pour effectuer des
@@ -266,7 +272,8 @@
                     et ou faciliter la pratique des m&eacute;decins et d&#39;apporter le soin n&eacute;cessaire
                     &agrave;
                     chaque
-                    patient&nbsp;<br />Actuelement, la saisie des donn&eacute;es m&eacute;dicales
+                    patient&nbsp;.<br />
+                    Actuellement, la saisie des donn&eacute;es m&eacute;dicales
                     (&eacute;cographies,
                     radiographies, EEG) dans le DPI se fait manuellement, ce qui peut prendre du temps et peut
                     entrer
@@ -276,25 +283,27 @@
                     d&#39;approximativement
                     <span data-darkreader-inline-bgcolor=""
                         style="--darkreader-inline-bgcolor:#9a2e22; background-color:#c0392b">XX</span> appareils
-                    biom&eacute;dicaux.
+                    biom&eacute;dicaux. <br />
+                    Le but de ce projet est d'uniformiser le flux de travail, sécuriser les données transmises
+                    et d'offrir une solution centralisée pour l'accéder à cettes données. <br />
+                    Il est aussi nécessaire d'assurer l'évolutivité du projet.
                 </p>
                 <h2 id="pb">Définition du problème</h2>
                 <h3>Problematique</h3>
                 <blockquote>
-                    <p style="text-align:justify"><span style="font-size:16px"><em><strong>Comment automatiser
+                    <p class="justify"><span style="font-size:16px"><em><strong>"Comment automatiser
                                     l'intégration des
                                     données médicales (récupérées des appareils de diagnostic médicaux) de manière
                                     sécurise dans
-                                    les dossiers patients informatisés ?</strong></em></span></p>
+                                    les dossiers patients informatisés ?"</strong></em></span></p>
                 </blockquote>
-                <p style="text-align:justify">La sollution actuelle (saisi manuelle des resultats) est lente et
-                    source
-                    d&#39;erreure: du a la nature manuelle de saisi, les donnees n&#39;apparais pas instantement
-                    dans le
-                    DPI du
-                    patient, ce qui pourrait provoquer une redondance de donnees. Un médecin peut ordonner une analyse,
-                    malgré le fait que le patient a déjà effectue cette même analyse
-                    (car les résultats ne sont pas présents dans le DPI). <br />
+                <p class="justify">La solution actuelle (saisie manuelle des résultats) est lente et source d'erreurs:
+                    dû à la nature manuelle de saisi, les données n'apparaissent pas instantement dans le DPI du
+                    patient,
+                    ce qui pourrait provoquer une redondance de données. Un médecin peut ordonner une analyse,
+                    malgré le fait que le patient a déjà effectue cette même analyse (car les résultats ne sont pas
+                    présents dans le DPI).
+                    <br />
                     D&ucirc; &agrave; la nature manuelle de la tache, il est &eacute;galement possible (m&ecirc;me
                     si
                     c&#39;est
@@ -303,7 +312,7 @@
                     ce qui
                     pourrait poser beaucoup des probl&egrave;mes.&nbsp;
                 </p>
-                <p style="text-align:justify">
+                <p class="justify">
                     De plus, le centre hospitalier est dot&eacute; des diff&eacute;rents types de machines qui
                     proviennent de
                     diff&eacute;rentes marques, ce qui provoque une fragmentation concernant la proc&eacute;dure
@@ -315,7 +324,7 @@
                     logiciels differents.</p>
 
                 <h2 id="et">Étude de l'existant / solution actuelle</h2>
-                <p style="text-align:justify">A l&#39;heure actuelle, l&#39;affectation des donn&eacute;es n&#39;est
+                <p class="justify">A l&#39;heure actuelle, l&#39;affectation des donn&eacute;es n&#39;est
                     pas
                     automatis&eacute;e. Les r&eacute;sultats sont soit scann&eacute;es&nbsp;et rattachés au DPI
                     patient
@@ -326,13 +335,14 @@
                     n&#39;est &eacute;videment&nbsp;pas la solution la plus efficace car du a la nature de saisie
                     manuelle des
                     donn&eacute;es, plusieurs probl&egrave;mes puis appara&icirc;tre.<br />
-                    Pour le moment, il n&#39;y a pas une solution compl&egrave;te sur le marché, et il faut donc integrer plusieurs solutions existants.<br />
+                    Pour le moment, il n&#39;y a pas une solution compl&egrave;te sur le marché, et il faut donc
+                    integrer plusieurs solutions existants.<br />
                     Le logiciel Patient Connect propose par Enovacom est une interface entre les machines et le DPI
                     mais
                     il faut
                     quand-m&ecirc;me&nbsp;faire communiquer les machines et le DPI avec l&#39;interface.</p>
                 <h2 id="dfb">Description fonctionnelle des besoins</h2>
-                <p style="text-align:justify">Le but de cette application est de rationaliser et automatiser le
+                <p class="justify">Le but de cette application est de rationaliser et automatiser le
                     processus
                     d&rsquo;int&eacute;gration des donnes patients dans leurs dossiers informatisé afin de rendre le
                     service m&eacute;dical
@@ -342,18 +352,18 @@
                     interne)&nbsp;et la mise en place d&#39;un nouveau r&eacute;seau WIFI.<br />
                     Une collaboration avec l&#39;entreprise Enovacom est n&eacute;cessaires pour la mise en place de
                     l&#39;interface qui communiqu&eacute; avec les appareils et le logiciel g&eacute;rant le DPI</p>
-                <p style="text-align:justify">Fonction principale:&nbsp; r&eacute;cup&eacute;rer les
+                <p class="justify">Fonction principale:&nbsp; r&eacute;cup&eacute;rer les
                     r&eacute;sultats
                     d&#39;examens de l&rsquo;&eacute;quipement biom&eacute;dical et les affecter aux DPI
                     correspondants.
                 </p>
-                <p style="text-align:justify">Autres fonctions:</p>
+                <p class="justify">Autres fonctions:</p>
                 <ul>
-                    <li style="text-align:justify">s&eacute;curisation&nbsp;d&rsquo;envoi des donn&eacute;es&nbsp;
+                    <li class="justify">s&eacute;curisation&nbsp;d&rsquo;envoi des donn&eacute;es&nbsp;
                     </li>
-                    <li style="text-align:justify">identification des patients et du personnel</li>
-                    <li style="text-align:justify">syst&egrave;mes&nbsp;d&#39;authentification</li>
-                    <li style="text-align:justify">op&eacute;rations sans fille (WIFI) afin de rester mobile</li>
+                    <li class="justify">identification des patients et du personnel</li>
+                    <li class="justify">syst&egrave;mes&nbsp;d&#39;authentification</li>
+                    <li class="justify">op&eacute;rations sans fille (WIFI) afin de rester mobile</li>
                     <li style="text-align:justify; color: red">A COMLETER OU MODIFIER</li>
                 </ul>
                 <h2 id="dbt">Description des besoins technique</h2>
@@ -383,22 +393,62 @@
                         donn&eacute;es et pour l&#39;authentification (SSO) du personnel (&eacute;viter
                         l&#39;authentification
                         redondante)</li>
-                    <li>mise a jour du serveur qui eberge envoacom (server 2008 -&gt; server 2019) pour accommoder
+                    <li>mise a jour du serveur qui heberge Envoacom (server 2008 -&gt; server 2019) pour accommoder
                         la
                         nouvelle
                         interface et pour augmenter la s&eacute;curit&eacute; des donn&eacute;es mais aussi pour
                         &eacute;viter
                         l&rsquo;instabilit&eacute; du serveur</li>
-                    <li>mise a jour du serveur pr&eacute;vue janvier-f&eacute;vrier 2022</li>
+                    <li>mise à jour du serveur pr&eacute;vue janvier-f&eacute;vrier 2022</li>
+                    <li>Preparation et mise en place des deux serveurs pour héberger les services de cardiologie (MUSE)
+                        proposée par General Electric</li>
                 </ul>
                 <h2>Enveloppe budgetaire</h2>
                 <p style="color: red;">A VOIR</p>
                 <h2 id="pp">Planning provisionnel </h2>
                 <p style="color: red;">A COMPLETER</p>
-                <div class="gantt"><img src="https://i.imgur.com/zqbFH6B.png" alt=""></div>
+                <div class="gantt"><img src="https://i.imgur.com/zqbFH6B.png" alt="gantt"></div>
                 <br>
-                <p style="text-align:justify"><strong>Déployement serveur MUSE:</strong></p>
-                <div class="gantt"><img src="https://i.imgur.com/fvTkvP7.png" alt=""></div>
+                <p class="justify"><strong>Déployement serveur MUSE:</strong></p>
+                <div class="gantt"><img src="https://i.imgur.com/fvTkvP7.png" alt="gantt"></div>
+                <br>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#chrono">Voir la
+                    chronologie de l’installation</button><br>
+                <div id="chrono" class="collapse">
+                    <br>
+                    <p class="justify"> Cette chronologie prévisionnelle à été fourni par GE:</p>
+                    <img src="https://i.imgur.com/A3CIjxF.png" class="img-responsive" alt="chrono">
+                </div>
+                <br>
+                 <p class="justify">Plusieurs étapes sont nécessaires pour accomplir ce projet
+                Ces étapes sont indispensables et ils nécessitent des ressources et durées différentes pour assurer leur implementation: </p>
+                <ul class="justify">
+                    <li>Organiser des réunions a l'interne pour définir le périmètre du projet</li>
+                    <li>Définir les besoins concrets en collaboration avec l'équipe biomedical</li>
+                    <li>Organiser des visio-conférences avec des prestataires extérieurs pour déterminer les moyens d'intégration des solutions proposées</li>
+                    <li>Acquisition du matériel (si nécessaire)</li>
+                    <li>Preparation du matériel (biomedical)</li>
+                    <li>Préparer l'infrastructure (réseau Wi-Fi, serveurs nécessaires)</li>
+                    <li>Implementation des logiciels fournis par les prestataires (Enovacom et General Electric)</li>
+                    <li>Validation des serveurs, clients et interfaces précédemment mises en oeuvre </li>
+                    <li>Préparer une stratégie de domaine pour le paramétrage des postes des utilisateurs concernés</li>
+                    <li>Conduire des tests exhaustifs avec des données fictives pour assurer le bon fonctionnement des systèmes implémentés</li>
+                    <li>Préparer les serveurs de production </li>
+                    <li>Valider le projet (fonctionnement, sécurité...)</li>
+                    <li>Création d'une procédure technique (maintenance, paramétrage, détails techniques)</li>
+                    <li>Création d'une notice utilisateur</li>
+                    <li>Déploiement du projet pour les utilisateurs finaux </li>
+                </ul> 
+                <p class="justify">La date finale pour la mise en production est prévue pour Juliet 2022.</p>
+                <br>
+                <p class="justify"><strong>Dates clés:</strong></p>
+                <p class="justify"><i>11 oct. 2021</i> <br> Début d'alternance, accueil au sein du centre hospitalier</p>
+                <p class="justify"><i>26 oct. 2021</i> <br>Réunion avec le service informatique et service biomedical: introduction du projet </p>
+                <p class="justify"><i>02 févr. 2022</i> <br>EPC</p>
+                <p class="justify"><i>14 févr. 2022</i> <br>MUSE</p>
+                <p class="justify"><i>14 mars. 2022</i> <br>Serveurs EPC et MUSE</p>
+
+
                 <h2 id="cont">Contraintes</h2>
                 <p style="color: red;">A COMPLETER</p>
                 <hr>
@@ -409,7 +459,7 @@
                     d'informations cliniques, mais aussi administratifs et financières entre divers systèmes
                     d'informations
                     hospitaliers et qui intègre des diverses normes internationales ISO.<br />
-                    Le 7 (du nom HL7) fais référence à la couche du modèle <a style="color: rgb(106, 158, 255);"
+                    Le 7 (du nom HL7) fais référence à la couche du modèle <a class="link"
                         href="https://fr.wikipedia.org/wiki/Mod%C3%A8le_OSI">OSI</a> (la couche application).
                 </P>
                 <h2>Structure</h2>
@@ -443,7 +493,7 @@
  IN2||354221840|0000007496^RETIRED|||354221840A||||||||||||||||||||||||||||||Y|||CHR||||W|||RETIRED|||||||||||||||||(818)249-3361||||||||C
  IN1|2||2320|AETNA PPO|PO BOX 14079^PO BOX 14079^LEXINGTON^KY^40512|||081140101400020|RETIRED|||20130101|||COM|MOCK^WANDA^J^^|A|19301013|2820 SYCAMORE AVE^TWELVE OAKS LODGE^MONTROSE^CA^91214^USA^^^|||2||||||||||||||811001556|||||||F|^^^^00000^|N||||010107127           
                 </textarea>
-                <P style="text-align: justify;">
+                <P class="justify">
                     Apres le parsage:
                 </P>
                 <textarea rows="22" disabled class="code">
@@ -980,8 +1030,9 @@
     </div>
     <div class="col-lg-2"></div>
     <footer class="footer mt-auto py-3 bg-light text-center">
-        <p>OLTEAN Petru © 2022 | <a style="color: rgb(106, 158, 255);" href="http://www.ch-saintdie.fr/">CHI HMV</a> X
-            <a style="color: rgb(106, 158, 255);" href="https://iutsd.univ-lorraine.fr/">IUT Saint-Dié</a> | V1.2</p>
+        <p>OLTEAN Petru © 2022 | <a class="link" href="http://www.ch-saintdie.fr/">CHI HMV</a> X
+            <a class="link" href="https://iutsd.univ-lorraine.fr/">IUT Saint-Dié</a> | V1.3
+        </p>
     </footer>
 </body>
 
